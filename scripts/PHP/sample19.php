@@ -7,7 +7,7 @@ if(!empty($_POST['email']))
     $to = $_POST['email'];
     $subject = $_POST['subject'];
     $body = $_POST['message'];
-    $from = mb_encode_mimeheader(mb_convert_encoding("PELO"), "JIS", "UTF-8", "<canvas.pelo@gmail.com>");
+    $from = mb_encode_mimeheader(mb_convert_encoding("PELO"), "JIS", "UTF-8", "<pelo@mail1.catkuma.com>");
     $success = mb_send_mail($to, $subject, $body, "From:".$from);
 }
 ?>
