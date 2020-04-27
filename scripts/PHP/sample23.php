@@ -2,11 +2,11 @@
 
 $file = $_FILES['my_img'];
 
-print('file name:' . $flie['name'] .'<br />');
-print('file type:'. $flie['type'] .'<br />');
-print('upload file:'. $flie['tmp_name'] .'<br />');
-print('error:'. $file['error'] .'<br />');
-print('size:'. $file['size'] .'<br />');
+print('file name:' . $flie['name']);
+print('file type:'. $flie['type']);
+print('upload file:'. $flie['tmp_name']);
+print('error:'. $file['error']);
+print('size:'. $file['size']);
 
 $ext = substr($file['name'], -4);
 if($ext == '.gif' || $ext == '.jpg' || $ext=='.png')
