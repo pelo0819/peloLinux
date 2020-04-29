@@ -1,11 +1,17 @@
 
 <?php
 $tempfile = $_FILES['fname']['tmp_name'];
-$filename = './' . $_FILES['fname']['name'];
- 
+$filename = '/var/www/html/php/sample23/user_img/' . $_FILES['fname']['name'];
+$error = $_FILES['fname']['error'];
+$size = $_FILES['fname']['size'];
+
+echo "tempfile=" . $tempfile . ",filename=" . $filename . "<br />";
+echo " error=" . $error . ",size=" .$size."<br />";
+
 if (is_uploaded_file($tempfile)) {
     if ( move_uploaded_file($tempfile , $filename )) {
-	echo $filename . "をアップロードしました。";
+	echo $filename . "をアップロードしました。<br />";
+        print('<img src="'. $filename . '" />');
     } else {
         echo "ファイルをアップロードできません。";
     }
