@@ -1,7 +1,7 @@
 
 <?php
 $tempfile = $_FILES['fname']['tmp_name'];
-$filename = '/var/www/html/php/sample23/user_img/' . $_FILES['fname']['name'];
+$filename = '/php/sample23/user_img/' . $_FILES['fname']['name'];
 $error = $_FILES['fname']['error'];
 $size = $_FILES['fname']['size'];
 
