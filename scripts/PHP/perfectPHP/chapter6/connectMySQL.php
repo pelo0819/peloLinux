@@ -1,5 +1,5 @@
 <?php
-    $link = mysql_connect('192.168.3.50', 'pelo', '0819Tobita');
+    $link = mysql_connect('localhost', 'root', '0819Tobita');
     if($link)
     {
         echo 'connect database successfully'."\n";
