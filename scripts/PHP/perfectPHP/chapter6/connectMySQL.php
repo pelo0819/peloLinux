@@ -16,7 +16,7 @@
     $addr = 'eri@gamil.com';
 
     // 保存データを作成
-    $sql = 'insert into userinfo values('.$user.','.$pass.','.$addr.')';
+    $sql = "insert into userinfo values(".$user."','".$pass."','".$addr.")";
 
     // データを保存
     mysql_query($sql, $link);
