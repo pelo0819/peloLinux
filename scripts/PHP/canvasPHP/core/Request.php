@@ -67,6 +67,11 @@ class Request
         return $_SERVER['REMOTO_ADDR'];
     }
 
+    public function getScriptName()
+    {
+        return $_SERVER['SCRIPT_NAME'];
+    }
+
     public function getBaseUrl()
     {
         $script_name = $_SERVER['SCRIPT_NAME'];
