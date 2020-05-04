@@ -12,6 +12,7 @@ abstract class Application
 
     public function __construct($debug = false)
     {
+        echo 'Application construct'."\n";
         $this->setDebugMode($debug);
         $this->initialize();
         $this->configure();
