@@ -37,6 +37,7 @@ abstract class Controller
             throw new UnauthorizedActionException();
         }
 
+        // 継承クラスでの〇〇Action()の戻り値は、render()の戻り値にする
         $content = $this->$action_method($params);
 
         return $content;

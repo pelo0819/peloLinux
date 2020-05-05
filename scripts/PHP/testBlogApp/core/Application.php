@@ -12,7 +12,7 @@ abstract class Application
 
     public function __construct($debug = false)
     {
-        // echo 'Application construct<br />'."\n";
+        echo 'Application construct<br />'."\n";
         $this->setDebugMode($debug);
         $this->initialize();
         $this->configure();
@@ -98,7 +98,7 @@ abstract class Application
 
     public function run()
     {
-        // echo 'Application run<br />'."\n";
+        echo 'Application run<br />'."\n";
         try
         {
             $params = $this->router->resolve($this->request->getPathInfo());
@@ -110,9 +110,13 @@ abstract class Application
             $controller = $params['controller'];
             $action = $params['action'];
 
-            // echo ' path='. $this->request->getPathInfo() .'<br />'."\n";
-            // echo ' clientAddr='. $this->request->getUserAddr() .'<br />'."\n";
-            // echo ' controller=' . $controller . ' action='. $action . '<br />' . "\n";
+            echo ' path='. $this->request->getPathInfo() .'<br />'."\n";
+            echo ' clientAddr='. $this->request->getUserAddr() .'<br />'."\n";
+            echo ' controller=' . $controller . ' action='. $action . '<br />' . "\n";
+            foreach($params as $i => $p)
+            {
+                echo 'param'.$i.'='.$p.'<br />'."\n";
+            }
 
             $this->runAction($controller, $action, $params);
         }
@@ -132,16 +136,21 @@ abstract class Application
 
     public function runAction($controller_name, $action, $params = array())
     {
+        // 指定した前半部分コントローラ名からインスタンス化したいコントローラ名を完成させる
         // 最初の文字を大文字にする
         $controller_class = ucfirst($controller_name) . 'Controller';
 
+        // 生成したコントローラ名のクラスをインスタンス化
         $controller = $this->findController($controller_class);
         if($controller === false)
         {
-            // echo 'Not found Contoller ['.$controller_class.'] <br />'."\n";
+            echo 'Not found Contoller ['.$controller_class.'] <br />'."\n";
             throw new HttpNotFoundException($controller_class . ' controller is not found.');
         }
 
+        // $controller->run()の戻り値=viewクラス->render()の戻り値
+        // viewクラス->render()の戻り値は、HTMLの書式で書かれたコンテント内容
+        // $controllerもviewクラスも継承クラス
         $content = $controller->run($action, $params);
 
         $this->response->setContent($content);
@@ -171,7 +180,7 @@ abstract class Application
 
     protected function render404Page($e)
     {
-        // echo 'Application render404page <br />'."\n";
+        echo 'Application render404page <br />'."\n";
         $this->response->setStatusCode(404, 'Not Found');
         $message = $this->isDebugMode() ? $e->getMessage() : 'Page not found.';
         $message = htmlspecialchars($message, ENT_QUOTES, 'UTF-8');

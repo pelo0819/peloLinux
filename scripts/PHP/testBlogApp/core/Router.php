@@ -7,7 +7,7 @@ class Router
 
     public function __construct($definitions)
     {
-        // echo 'Router construct<br />'."\n";
+        echo 'Router construct<br />'."\n";
         $this->routes = $this->compileRoutes($definitions);
     }
 
