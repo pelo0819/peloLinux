@@ -138,6 +138,7 @@ abstract class Application
         $controller = $this->findController($controller_class);
         if($controller === false)
         {
+            echo 'Not found Contoller ['.$controller_class.'] <br />'."\n";
             throw new HttpNotFoundException($controller_class . ' controller is not found.');
         }
 
