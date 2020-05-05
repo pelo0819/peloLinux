@@ -64,7 +64,7 @@ class Request
 
     public function getUserAddr()
     {
-        return $_SERVER['REMOTO_ADDR'];
+        return $_SERVER['REMOTE_ADDR'];
     }
 
     public function getScriptName()
