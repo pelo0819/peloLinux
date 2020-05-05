@@ -8,7 +8,7 @@ abstract class DbRepository
     /*
     コンストラクタ コネクションを設定
     */
-    public function __contruct($con)
+    public function __construct($con)
     {
         $this->setConnection($con);
     }

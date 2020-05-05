@@ -80,7 +80,7 @@ class DbManager
     指定したレポジトリが使用しているコネクションを取得
     $repository_name : レポジトリの名前
     */
-    public function getRepositoryForConnection($repository_name)
+    public function getConnectionForRepository($repository_name)
     {
         if(isset($this->repository_connection_map[$repository_name]))
         {
@@ -104,7 +104,7 @@ class DbManager
         if(!isset($this->repositories[$repository_name]))
         {
             $repository_class = $repository_name . 'Repository';
-            $con = $this->getRepositoryForConnection($repository_name);
+            $con = $this->getConnectionForRepository($repository_name);
 
             $repository = new $repository_class($con);
             $this->repositories[$repository_name] = $repository;
