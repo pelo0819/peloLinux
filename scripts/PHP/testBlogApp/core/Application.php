@@ -171,6 +171,7 @@ abstract class Application
 
     protected function render404Page($e)
     {
+        echo 'Application render404page <br />'."\n";
         $this->response->setStatusCode(404, 'Not Found');
         $message = $this->isDebugMode() ? $e->getMessage() : 'Page not found.';
         $message = htmlspecialchars($message, ENT_QUOTES, 'UTF-8');
