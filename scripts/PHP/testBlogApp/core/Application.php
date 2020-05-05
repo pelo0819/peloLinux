@@ -115,7 +115,7 @@ abstract class Application
             echo ' controller=' . $controller . ' action='. $action . '<br />' . "\n";
             foreach($params as $i => $p)
             {
-                echo 'param'.$i.'='.$p.'<br />'."\n";
+                echo 'param['.$i.']='.$p.'<br />'."\n";
             }
 
             $this->runAction($controller, $action, $params);

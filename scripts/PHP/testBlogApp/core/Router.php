@@ -68,13 +68,13 @@ class Router
             {
                 foreach($value as $i => $v)
                 {
-                    echo ' param[' .$i. ']='.$v;
+                    echo ', param[' .$i. ']='.$v;
                 }
                 echo '<br />'."\n";
             }
             else
             {
-                echo ' value='.$value.'<br />'."\n";
+                echo ', param='.$value.'<br />'."\n";
             }
         }
         return $routes;
