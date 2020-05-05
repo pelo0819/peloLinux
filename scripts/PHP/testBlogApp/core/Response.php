@@ -9,7 +9,7 @@ class Response
 
     public function send()
     {
-        echo 'Response send <br />'."\n";
+        // echo 'Response send <br />'."\n";
 
         header('HTTP/1.1 '.$this->status_code.' '.$this->status_text);
 

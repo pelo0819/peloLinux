@@ -12,7 +12,7 @@ abstract class Application
 
     public function __construct($debug = false)
     {
-        echo 'Application construct<br />'."\n";
+        // echo 'Application construct<br />'."\n";
         $this->setDebugMode($debug);
         $this->initialize();
         $this->configure();
@@ -98,7 +98,7 @@ abstract class Application
 
     public function run()
     {
-        echo 'Application run<br />'."\n";
+        // echo 'Application run<br />'."\n";
         try
         {
             $params = $this->router->resolve($this->request->getPathInfo());
@@ -110,9 +110,9 @@ abstract class Application
             $controller = $params['controller'];
             $action = $params['action'];
 
-            echo ' path='. $this->request->getPathInfo() .'<br />'."\n";
-            echo ' clientAddr='. $this->request->getUserAddr() .'<br />'."\n";
-            echo ' controller=' . $controller . ' action='. $action . '<br />' . "\n";
+            // echo ' path='. $this->request->getPathInfo() .'<br />'."\n";
+            // echo ' clientAddr='. $this->request->getUserAddr() .'<br />'."\n";
+            // echo ' controller=' . $controller . ' action='. $action . '<br />' . "\n";
 
             $this->runAction($controller, $action, $params);
         }
@@ -138,7 +138,7 @@ abstract class Application
         $controller = $this->findController($controller_class);
         if($controller === false)
         {
-            echo 'Not found Contoller ['.$controller_class.'] <br />'."\n";
+            // echo 'Not found Contoller ['.$controller_class.'] <br />'."\n";
             throw new HttpNotFoundException($controller_class . ' controller is not found.');
         }
 
@@ -171,7 +171,7 @@ abstract class Application
 
     protected function render404Page($e)
     {
-        echo 'Application render404page <br />'."\n";
+        // echo 'Application render404page <br />'."\n";
         $this->response->setStatusCode(404, 'Not Found');
         $message = $this->isDebugMode() ? $e->getMessage() : 'Page not found.';
         $message = htmlspecialchars($message, ENT_QUOTES, 'UTF-8');
