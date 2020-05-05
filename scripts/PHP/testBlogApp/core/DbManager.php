@@ -85,11 +85,11 @@ class DbManager
         if(isset($this->repository_connection_map[$repository_name]))
         {
             $key = $this->repository_connection_map[$repository_name];
-            $this->getConnection($key);
+            $con = $this->getConnection($key);
         }
         else
         {
-            $con->getConnection();
+            $con = $this->getConnection();
         }
         return $con;
     }
