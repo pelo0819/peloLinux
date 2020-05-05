@@ -98,6 +98,7 @@ abstract class Application
 
     public function run()
     {
+        echo 'Application run<br />'."\n";
         try
         {
             $params = $this->router->resolve($this->request->getPathInfo());

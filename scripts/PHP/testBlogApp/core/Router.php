@@ -7,6 +7,7 @@ class Router
 
     public function __construct($definitions)
     {
+        echo 'Router construct<br />'."\n";
         $this->routes = $this->compileRoutes($definitions);
     }
 
@@ -32,13 +33,12 @@ class Router
             // ルーティング定義の先頭の/を削除し、/で分解する
             $tokens = explode('/', ltrim($url, '/'));
             
-            echo '$url='.$url."\n";
-            foreach($params as $key => $value)
-            {
-                echo 'key='.$key.' value='.$value."\n";
-            }
-
-            echo "\n";
+            // echo '$url='.$url."\n";
+            // foreach($params as $key => $value)
+            // {
+            //     echo 'key='.$key.' value='.$value."\n";
+            // }
+            // echo "\n";
 
             foreach($tokens as $i => $token)
             {
@@ -46,20 +46,19 @@ class Router
                 {
                     $name = substr($token, 1);
                     $token = '(?P<' .$name.'>[^/]+)';
-                    echo 'token='.$token."\n";
+                    // echo 'token='.$token."\n";
                 }
                 $tokens[$i] = $token;
             }
 
             $pattern = '/' . implode('/', $tokens);
             $routes[$pattern] = $params;
-            echo '$pattern='.$pattern."\n";
-            foreach($params as $param)
-            {
-                echo '$param='.$param."\n";
-            }
-
-            echo "\n";
+            // echo '$pattern='.$pattern."\n";
+            // foreach($params as $param)
+            // {
+            //     echo '$param='.$param."\n";
+            // }
+            // echo "\n";
         }
         return $routes;
     }
