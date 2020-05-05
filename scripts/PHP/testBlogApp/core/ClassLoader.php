@@ -26,7 +26,7 @@ class ClassLoader
             $file = $dir . '/' . $class . '.php';
             if(is_readable($file))
             {
-                echo 'load file='.$class.'.php'."\n";
+                //echo 'load file='.$class.'.php'."\n";
                 require $file;
                 return;
             }

@@ -7,7 +7,7 @@ class Router
 
     public function __construct($definitions)
     {
-        $this->$routes = $this->compileRoutes($definitions);
+        $this->routes = $this->compileRoutes($definitions);
     }
 
 
@@ -71,7 +71,7 @@ class Router
             $path_info = '/' . $path_info;
         }
 
-        foreach ($this->$routes as $pattern => $params) 
+        foreach ($this->routes as $pattern => $params) 
         {
             if (preg_match('#^' . $pattern . '$#', $path_info, $matches)) 
             {

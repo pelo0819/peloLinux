@@ -49,7 +49,7 @@ abstract class Application
 
     abstract public function getRootDir();
 
-    abstract public function registerRoutes();
+    abstract protected function registerRoutes();
 
     public function isDebugMode()
     {

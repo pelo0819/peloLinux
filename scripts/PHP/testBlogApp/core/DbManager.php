@@ -25,9 +25,9 @@ class DbManager
             'dsn'      => null,
             'user'     => '',
             'password' => '',
-            'options'  => '',
+            'options'  => array(),
         ), $params);
-
+      
         try
         {
             $con = new PDO(
@@ -113,7 +113,7 @@ class DbManager
     */
     public function __destruct()
     {
-        foreach($this->$repositories as $rep)
+        foreach($this->repositories as $rep)
         {
             unset($rep);
         }
