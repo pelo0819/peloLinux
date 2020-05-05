@@ -1,0 +1,14 @@
+■my.cnfの保存場所
+　/etc
+
+■詳細ログの取得
+・my.cnfに
+	general_log=1
+        general_log_file=/var/log/general-query.log
+  を追加
+　1行目は詳細ログを有効
+　2行目はログの保存先を指定
+
+・mysql起動後、
+	SET GLOBAL general_log='on'
+　をたたく
