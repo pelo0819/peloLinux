@@ -22,7 +22,7 @@ class Response
 
     public function setContent($content)
     {
-        $this->$content = $content;
+        $this->content = $content;
     }
 
     public function setStatusCode($status_code, $status_text ='')
