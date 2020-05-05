@@ -18,6 +18,7 @@ abstract class DbRepository
     */
     public function setConnection($con)
     {
+        echo 'DbRepository setConnection() <br />'."\n";
         $this->con = $con;
     }
 
