@@ -110,6 +110,10 @@ abstract class Application
             $controller = $params['controller'];
             $action = $params['action'];
 
+            echo ' path='. $this->request->getPathInfo() .'<br />'."\n";
+            echo ' clientAddr='. $this->request->getUserAddr() .'<br />'."\n";
+            echo ' controller=' . $controller . ' action='. $action . '<br />' . "\n";
+
             $this->runAction($controller, $action, $params);
         }
         catch(HttpNotFoundException $e)

@@ -38,11 +38,11 @@ class DbManager
             );
             $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->connection[$connection_key] = $con;
-            echo 'connetct Database successfully.'."\n";
+            echo 'connetct Database successfully. <br />'."\n";
         }
         catch(PDOException $e)
         {
-            echo 'failed connetct Database.'."\n";
+            echo 'failed connetct Database.<br />'."\n";
         }
         
     }
