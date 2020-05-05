@@ -63,7 +63,19 @@ class Router
 
         foreach($routes as $key => $value)
         {
-            echo 'pattern='.$key.' param='.$value.'<br />'."\n";
+            echo 'pattern='.$key;
+            if(is_array($value) === true)
+            {
+                foreach($value as $i => $v)
+                {
+                    echo ' param[' .$i. ']='.$v;
+                }
+                echo '<br />'."\n";
+            }
+            else
+            {
+                echo ' value='.$value.'<br />'."\n";
+            }
         }
         return $routes;
     }
