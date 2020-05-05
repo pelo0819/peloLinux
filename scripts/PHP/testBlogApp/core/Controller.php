@@ -90,7 +90,7 @@ abstract class Controller
         $key = 'csrf_tokens/' . $form_name;
         $tokens = $this->session->get($key, array());
 
-        if(count($token) >= 10)
+        if(count($tokens) >= 10)
         {
             array_shift($tokens);
         }
