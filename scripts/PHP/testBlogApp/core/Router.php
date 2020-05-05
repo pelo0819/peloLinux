@@ -60,6 +60,11 @@ class Router
             // }
             // echo "\n";
         }
+
+        foreach($routes as $key => $value)
+        {
+            echo 'pattern='.$key.' param='.$value.'<br />'."\n";
+        }
         return $routes;
     }
 
