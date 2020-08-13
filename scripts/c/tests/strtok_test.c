@@ -4,6 +4,23 @@
 
 u_int8_t mac[6];
 
+int my_ether_aton(char *str, u_int8_t *mac);
+
+int main(int argc, char *argv[])
+{
+    printf("hello world.\n");
+    char *str = "e8:e0:b7:9c:3e:54";
+
+    my_ether_aton(str, mac);
+
+    for(int i=0;i<sizeof(mac);i++)
+    {
+        printf("no.%d:%d ", i, mac[i]);
+    }
+    printf("\n");
+
+}
+
 int my_ether_aton(char *str, u_int8_t *mac)
 {
     char *ptr = NULL;
@@ -24,19 +41,4 @@ int my_ether_aton(char *str, u_int8_t *mac)
     }
     free(tmp);
     return 0;
-}
-
-int main(int argc, char *argv[])
-{
-    printf("hello world.\n");
-    char *str = "e8:e0:b7:9c:3e:54";
-
-    my_ether_aton(str, mac);
-
-    for(int i=0;i<sizeof(mac);i++)
-    {
-        printf("no.%d:%d ", i, mac[i]);
-    }
-    print("\n");
-
 }
