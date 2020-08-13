@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <sys/types.h>
 
 u_int8_t mac[6];
 
