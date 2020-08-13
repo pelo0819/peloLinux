@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-u_int8_t mac[6]
+u_int8_t mac[6];
 
 int my_ether_aton(char *str, u_int8_t *mac)
 {
