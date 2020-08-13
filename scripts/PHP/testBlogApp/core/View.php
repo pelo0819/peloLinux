@@ -19,7 +19,11 @@ class View
 
     public function render($_path, $_variables = array(), $_layout = false)
     {
+        echo 'Viee render() <br />'."\n";
+
         $_file = $this->base_dir . '/' . $_path . '.php';
+
+        echo ' require file='.$_file.'<br />'."\n";
 
         // 連想配列を変数に変更
         extract(array_merge($this->defaults, $_variables));
