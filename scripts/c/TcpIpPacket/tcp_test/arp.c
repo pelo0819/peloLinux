@@ -334,6 +334,19 @@ int ArpSendRequest(int soc, struct in_addr *targetIp)
 
 }
 
+// int ArpPoison(int soc)
+// {
+//     ArpSend
+//     (
+//         soc,
+//         ARPOP_REPLY,
+//         Param.vmac,
+
+
+//     )
+
+// }
+
 int ArpSend(
     int soc,
     u_int16_t op,
