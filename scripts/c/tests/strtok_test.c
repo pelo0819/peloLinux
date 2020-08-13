@@ -20,6 +20,11 @@ int main(int argc, char *argv[])
     }
     printf("\n");
 
+    for(int i=0;i<5;i++, printf("i=%d", i))
+    {
+        printf("hello\n");
+    }
+
 }
 
 int my_ether_aton(char *str, u_int8_t *mac)
