@@ -1,6 +1,7 @@
-#include <stdio.h>
-#include <string.h>
-#include <sys/types.h>
+#include <stdio.h> // printf
+#include <string.h> // strtok_r
+#include <sys/types.h> // u_int8_t
+#include <stdlib.h> //free strtol
 
 u_int8_t mac[6];
 
