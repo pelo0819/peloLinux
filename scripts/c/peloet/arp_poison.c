@@ -24,7 +24,7 @@ void Poison(void)
 {
     if(isPoisoning != 1){ return; }
 
-    print("poisoning now.\n");
+    printf("poisoning now.\n");
 
 }
 
