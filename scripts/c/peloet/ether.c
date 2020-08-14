@@ -101,10 +101,10 @@ int EtherRecv(int soc, u_int8_t *in_ptr, int in_len)
 
     // ブロードキャストでも自分宛て(設定ファイル)でもなければ無視
     // TODO:無視するかしないか、IPアドレスの指定を動的に行えるようにせよ
-    if(memcmp(eh->ether_dhost, BcastMac, 6) != 0 && memcmp(eh->ether_dhost, Param.vmac, 6) != 0)
-    {
-        return -1;
-    }
+    // if(memcmp(eh->ether_dhost, BcastMac, 6) != 0 && memcmp(eh->ether_dhost, Param.vmac, 6) != 0)
+    // {
+    //     return -1;
+    // }
 
     if (ntohs(eh->ether_type) == ETHERTYPE_ARP) 
     {
