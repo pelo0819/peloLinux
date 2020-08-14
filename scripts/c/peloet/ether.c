@@ -99,7 +99,10 @@ int EtherRecv(int soc, u_int8_t *in_ptr, int in_len)
     ptr += sizeof(struct ether_header);
     len -= sizeof(struct ether_header);
 
-    print_ether_header(eh);
+    if(ntohs(eh->ether_type) != ETHERTYPE_ARP)
+    {
+        print_ether_header(eh);
+    }
 
 
     // ブロードキャストでも自分宛て(設定ファイル)でもなければ無視
