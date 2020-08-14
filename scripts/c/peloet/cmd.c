@@ -18,6 +18,7 @@
 #include "sock.h"
 #include "ether.h"
 #include "arp.h"
+#include "arp_poison.h"
 #include "icmp.h"
 #include "udp.h"
 #include "tcp.h"
@@ -112,6 +113,13 @@ int DoCmdArp(char **cmdline)
 		printf("input target1:%s\n", ptr);
 		printf("input target2:%s\n", ptr2);
 
+		struct in_addr t1;
+		struct in_addr t2;
+
+		inet_aton(ptr, &t1);
+		inet_aton(ptr2, &t2);
+
+		StartPoison(DeviceSoc, &t1, &t2);
 
 	}
     else
