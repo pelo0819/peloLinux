@@ -66,18 +66,19 @@ int DoCmdArp(char **cmdline)
 {
     char *ptr;
     ptr = strtok_r(NULL, " \r\n", cmdline);
-    // if((ptr = strtok_r(NULL, " \r\n", cmdline)) == NULL)
     if(ptr == NULL)
     {
         printf("DoCmdArp:no arg\n");
         return -1;
     }
 
+	// show ARP table
     if(strcmp(ptr, "-a") == 0)
     {
         ArpShowTable();
         return 0;
     }
+	// delete ARP table
     else if(strcmp(ptr, "-d") == 0)
     {
         if((ptr = strtok_r(NULL, " \r\n", cmdline)) == NULL)
@@ -96,6 +97,16 @@ int DoCmdArp(char **cmdline)
         }
         return 0;
     }
+	else if(strcmp(ptr, "-p") == 0)
+	{
+		if((ptr = strtok_r(NULL, " \r\n", cmdline)) == NULL)
+		{
+			printf("DoCmdArp: -p no arg\n");
+		}
+
+		printf("arp -p %s", ptr);
+
+	}
     else
     {
         printf("DoCmdArp:[%s] unknown\n", ptr);
