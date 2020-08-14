@@ -119,6 +119,11 @@ int EtherRecv(int soc, u_int8_t *in_ptr, int in_len)
     {
         IpRecv(soc, in_ptr, in_len, eh, ptr, len);
     }
+    else
+    {
+        printf("Recv packet not Arp and not IP\n");
+    }
+    
     
     return 0;
 }
