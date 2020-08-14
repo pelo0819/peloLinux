@@ -100,13 +100,18 @@ int DoCmdArp(char **cmdline)
     }
 	else if(strcmp(ptr, "-p") == 0)
 	{
-		if((ptr = strtok_r(NULL, " \r\n", cmdline)) == NULL)
+		ptr = strtok_r(NULL, " \r\n", cmdline);
+		char *ptr2;
+		ptr2 = strtok_r(NULL, " \r\n", cmdline);
+		if(ptr == NULL || ptr2 == NULL)
 		{
 			printf("DoCmdArp: -p no arg\n");
 			return -1;
 		}
 
-		printf("arp -p %s\n", ptr);
+		printf("input target1:%s\n", ptr);
+		printf("input target2:%s\n", ptr2);
+
 
 	}
     else
