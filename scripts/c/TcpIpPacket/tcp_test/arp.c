@@ -340,7 +340,8 @@ int ArpPoison(int soc)
         u_int32_t l;
         u_int8_t c[4];
     }saddr, daddr;
-    saddr.l = Param.vip.s_addr;
+    // saddr.l = Param.vip.s_addr;
+    saddr.l = Param.gateway.s_addr;
 
     char *daddr_str = "192.168.3.9";
     daddr.l = inet_addr(daddr_str);
