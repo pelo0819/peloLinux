@@ -1,0 +1,19 @@
+■Scapy
+・Ether header
+  Des      : c0:7c:d1:3e:c6:57
+  Src      : e8:e0:b7:9c:3e:54
+・ARP header
+  SenderMAC: e8:e0:b7:9c:3e:54
+  SenderIP : 192.168.3.1
+  TargetMAC: c0:7c:d1:3e:c6:57
+  TargetIP : 192.168.3.9
+
+■Pelopy
+・Ether header
+  Des      : c0:7c:d1:3e:c6:57
+  Src      : e8:e0:b7:9c:3e:54
+・ARP header
+  SenderMAC: e8:e0:b7:9c:3e:54
+  SenderIP : 192.168.3.1
+  TargetMAC: e8:e0:b7:9c:3e:54
+  TargetIP : 192.168.3.9
