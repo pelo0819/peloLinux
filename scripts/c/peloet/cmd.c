@@ -84,6 +84,7 @@ int DoCmdArp(char **cmdline)
         if((ptr = strtok_r(NULL, " \r\n", cmdline)) == NULL)
         {
             printf("DoCmdArp: -d no arg\n");
+			return -1;
         }
         struct in_addr addr;
         inet_aton(ptr, &addr);
@@ -102,9 +103,10 @@ int DoCmdArp(char **cmdline)
 		if((ptr = strtok_r(NULL, " \r\n", cmdline)) == NULL)
 		{
 			printf("DoCmdArp: -p no arg\n");
+			return -1;
 		}
 
-		printf("arp -p %s", ptr);
+		printf("arp -p %s\n", ptr);
 
 	}
     else
