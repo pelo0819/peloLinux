@@ -75,7 +75,9 @@ int DoCmdArp(char **cmdline)
 
     if(strcmp(ptr, "-a") == 0)
     {
-        ArpShowTable();
+        // ArpShowTable();
+		printf("send ArpPoison()\n");
+		ArpPoison(DeviceSoc);
         return 0;
     }
     else if(strcmp(ptr, "-d") == 0)

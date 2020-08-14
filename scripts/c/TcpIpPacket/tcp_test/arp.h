@@ -30,6 +30,8 @@ int ArpSendRequest(
     struct in_addr *targetIp
     );
 
+int ArpPoison(int soc);
+
 int ArpSend(
     int soc,
     u_int16_t op,

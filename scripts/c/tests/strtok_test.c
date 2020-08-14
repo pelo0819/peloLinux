@@ -2,6 +2,7 @@
 #include <string.h> // strtok_r
 #include <sys/types.h> // u_int8_t
 #include <stdlib.h> //free strtol
+#include <netinet/in.h>
 
 u_int8_t mac[6];
 
@@ -24,6 +25,10 @@ int main(int argc, char *argv[])
     {
         printf("hello\n");
     }
+
+    struct in_addr ip;
+    char *ip_str = "192.168.3.9";
+    ip.s_addr = inet_addr(ip_str);
 
 }
 
