@@ -170,6 +170,7 @@ int init_sock(char *device)
     }
 
     // NICで機能フラグワードをif_reqに教える
+    // 言い換えるとネットインターフェイスの状態フラグ(状態)をif_reqに保存
     if(ioctl(soc, SIOCGIFFLAGS, &if_req) < 0)
     {
         perror("ioctl");
