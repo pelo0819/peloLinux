@@ -110,17 +110,21 @@ int DoCmdArp(char **cmdline)
 			return -1;
 		}
 
-		printf("input target1:%s\n", ptr);
-		printf("input target2:%s\n", ptr2);
+		printf("input target:%s\n", ptr);
+		printf("input gateway:%s\n", ptr2);
 
-		struct in_addr t1;
-		struct in_addr t2;
+		struct in_addr t_addr;
+		struct in_addr g_addr;
 
-		inet_aton(ptr, &t1);
-		inet_aton(ptr2, &t2);
+		inet_aton(ptr, &t_addr);
+		inet_aton(ptr2, &g_addr);
 
-		StartPoison(DeviceSoc, &t1, &t2);
+		StartPoison(DeviceSoc, &t_addr, &g_addr);
 
+	}
+	else if(strcmp(ptr, "-e") == 0)
+	{
+		StopPoison();
 	}
     else
     {
