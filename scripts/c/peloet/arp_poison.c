@@ -45,8 +45,8 @@ void *PoisonThread(void * arg)
     //my IP Address
     m_addr.l = Param.vip.s_addr;
 
-    ArpSearchTable(target_addr, t_mac);
-    ArpSearchTable(gateway_addr, g_mac);
+    ArpSearchTable(&target_addr, t_mac);
+    ArpSearchTable(&gateway_addr, g_mac);
     
     int soc = GetDeviceSoc();
     // send ARP Reply to target PC
@@ -112,6 +112,8 @@ void StopPoison(void)
     t_addr.l = target_addr.s_addr;
     //gatewayのIPアドレス
     g_addr.l = gateway_addr.s_addr;
+
+    int soc = GetDeviceSoc();
 
     int i;
     // 5回くらい正しいARP Replyを送信して攻撃対象のARPテーブルを戻す
