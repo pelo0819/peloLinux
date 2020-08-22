@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
+#include <thread.h>
 
 #include "sock.h"
 #include "ether.h"
@@ -25,7 +26,7 @@ struct in_addr gateway_addr;
 攻撃対象に対して偽装したARP Replyを送り続ける
 thread化する予定
 */
-void Poison(void)
+void *PoisonThread(void * arg)
 {
     if(isPoisoning != 1){ return; }
 
@@ -75,11 +76,24 @@ void Poison(void)
 
 }
 
+void *PoisonTest(void * arg)
+{
+    printf("POISON TEST\n");
+}
+
 void StartPoison(int soc, struct in_addr *target, struct in_addr *gateway)
 {
     isPoisoning = 1;
     target_addr = *target;
     gateway_addr = *gateway;
+
+    pthread_attr_t attr;
+    pthread_t thread_id;
+
+    if(pthread_create(&thread_id, &attr, PoisonTest, NULL) != 0)
+    {
+        printf("pthread_create ArpPoison\n");
+    }
 }
 
 void StopPoison(void)

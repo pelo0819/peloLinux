@@ -120,7 +120,6 @@ int DoCmdArp(char **cmdline)
 		inet_aton(ptr2, &g_addr);
 
 		StartPoison(DeviceSoc, &t_addr, &g_addr);
-
 	}
 	else if(strcmp(ptr, "-e") == 0)
 	{
