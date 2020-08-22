@@ -41,7 +41,7 @@ int ending();
 int show_ifreq(char *name);
 void signals();
 void print_rawdata(u_int8_t raw_data[], int len);
-
+int GetDeviceSoc(void);
 
 int main(int argc, char *argv[])
 {
@@ -380,4 +380,4 @@ int ending()
     return 0;
 }
 
-int GetDeviceSoc(){return DeviceSoc;}
+int GetDeviceSoc(void){return DeviceSoc;}
