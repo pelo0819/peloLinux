@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
-#include <thread.h>
+#include <pthread.h>
 
 #include "sock.h"
 #include "ether.h"
