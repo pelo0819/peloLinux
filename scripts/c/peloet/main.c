@@ -379,3 +379,5 @@ int ending()
     }
     return 0;
 }
+
+int GetDeviceSoc(){return DeviceSoc;}
