@@ -196,7 +196,7 @@ int maccmp(u_int8_t from_mac[6], u_int8_t to_mac[6])
     // printf("length=%d\n", strlen(from_mac));
     for(i = 0; i < 6; i++)
     {
-        // printf("no.%s from_mac=%s, to_mac=%s\n", i, from_mac[i], to_mac[i]);
+        printf("no.%d from_mac=%d, to_mac=%d\n", i, from_mac[i], to_mac[i]);
         if(from_mac[i] != to_mac[i])
         {
             printf("dismatch!!!\n");

@@ -800,18 +800,18 @@ int TcpRecv(
     ptr += sizeof(struct tcphdr);
     tcplen -= sizeof(struct tcphdr);
 
-    printf("--- recv ---[\n");
-	print_ether_header(eh);
-	print_ip(ip);
-	print_tcp(tcp);
+    //printf("--- recv ---[\n");
+	//print_ether_header(eh);
+	//print_ip(ip);
+	//print_tcp(tcp);
 	lest=tcp->doff*4-sizeof(struct tcphdr);
 	if(lest>0){
 		print_tcp_optpad(ptr,lest);
 		ptr+=lest;
 		tcplen-=lest;
 	}
-	print_hex(ptr,tcplen);
-	printf("]\n");
+	//print_hex(ptr,tcplen);
+	//printf("]\n");
 
     if((no = TcpSearchTable(ntohs(tcp->dest))) != -1)
     {
