@@ -214,7 +214,7 @@ int EtherSend(
 
     // 送信するパケットが完成したので、あとは送る
     write(soc, sbuf, ptr - sbuf);
-    print_ether_header(eh);
+    //print_ether_header(eh);
 
     return 0;
 

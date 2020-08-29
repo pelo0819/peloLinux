@@ -102,7 +102,7 @@ int IcmpSendEchoReply(
 
     icmp->icmp_cksum = checksum(sbuf, ptr - sbuf);
 
-    printf("--- ICMP Reply ---\n[\n");
+    //printf("--- ICMP Reply ---\n[\n");
     IpSend(
         soc,
         &r_ip->ip_dst,
@@ -112,8 +112,8 @@ int IcmpSendEchoReply(
         ip_ttl,
         sbuf,
         ptr-sbuf);
-    print_icmp(icmp);
-    printf("]\n");
+    //print_icmp(icmp);
+    //printf("]\n");
 
     return 0;
 }
@@ -173,7 +173,7 @@ int IcmpSendEcho(
     // ICMPチェックサムを設定
     icmp->icmp_cksum = checksum((u_int8_t *)sbuf, ptr - sbuf);
 
-    printf("--- ICMP Echo ---\n[\n");
+    //printf("--- ICMP Echo ---\n[\n");
     IpSend(
         soc,
         &Param.vip,
@@ -184,8 +184,8 @@ int IcmpSendEcho(
         sbuf,
         ptr - sbuf
     );
-    print_icmp(icmp);
-    printf("]\n");
+    //print_icmp(icmp);
+    //printf("]\n");
 
     gettimeofday(&PingData[seqNo - 1].sendTime, NULL);
 
@@ -229,7 +229,7 @@ int IcmpSendDestinationUnreachable(
 
     icmp->icmp_cksum = checksum((u_int8_t *)sbuf, ptr - sbuf);
 
-    printf("=== ICMP Destination Unreachable ===[\n");
+    //printf("=== ICMP Destination Unreachable ===[\n");
     IpSend(
         soc,
         &Param.vip,
@@ -241,8 +241,8 @@ int IcmpSendDestinationUnreachable(
         ptr - sbuf
     );
 
-    print_icmp(icmp);
-    printf(")\n");
+    //print_icmp(icmp);
+    //printf(")\n");
 
     return 0;
 }
@@ -277,7 +277,6 @@ int IcmpRecv(
     u_int8_t *data,
     int len)
 {
-    printf("ICMPパケットを受信しました\n");
     struct icmp *icmp;
     u_int16_t sum;
     int icmpSize;
@@ -299,20 +298,19 @@ int IcmpRecv(
     // 自分宛に来ているか
     if(isTargetIPAddr(&ip->ip_dst))
     {
-        printf("私宛です\n");
-        printf("--- recv ---[\n");
-        print_ether_header(eh);
-        print_ip(ip);
-        print_icmp(icmp);
-        printf("]\n");
+        //printf("--- recv ---[\n");
+        //print_ether_header(eh);
+        //print_ip(ip);
+        //print_icmp(icmp);
+        //printf("]\n");
         if(icmp->icmp_type == ICMP_ECHO)
         {
-            printf("エコー要求に応答します\n");
+            //printf("エコー要求に応答します\n");
             IcmpSendEchoReply(soc, ip, icmp, ptr, len, Param.IpTTL);
         }
         else if(icmp->icmp_type == ICMP_ECHOREPLY)
         {
-            printf("こちらからのエコー要求に対する応答がきました\n");
+            //printf("こちらからのエコー要求に対する応答がきました\n");
             PingCheckReply(ip, icmp);
         }
     }
@@ -354,13 +352,13 @@ int PingCheckReply(
             }
 
             // 受信したICMPエコー応答結果を出力
-            printf("%d bytes from %s: icmp_seq=%d ttl=%d time=%d.%03d ms\n",
-                ntohs(ip->ip_len),
-                inet_ntop(AF_INET, &ip->ip_src, buf, sizeof(buf)),
-                ntohs(icmp->icmp_seq),
-                ip->ip_ttl,
-                sec,
-                usec);
+            //printf("%d bytes from %s: icmp_seq=%d ttl=%d time=%d.%03d ms\n",
+            //    ntohs(ip->ip_len),
+            //    inet_ntop(AF_INET, &ip->ip_src, buf, sizeof(buf)),
+            //    ntohs(icmp->icmp_seq),
+            //    ip->ip_ttl,
+            //    sec,
+            //    usec);
         }
     }
     return 0;

@@ -417,7 +417,7 @@ int ArpSend(
         sizeof(struct ether_arp)
     );
 
-    print_ether_arp(&arp);
+    //print_ether_arp(&arp);
     printf("]\n");
     return 0;
 }
@@ -528,11 +528,11 @@ int ArpRecv(
         if(isTargetIPAddr(&addr))
         {
             // 諸々の情報を出力
-            printf("--- recieve ARP Request ---\n");
-            printf("[\n");
-            print_ether_header(eh);
-            print_ether_arp(arp);
-            printf("]\n");
+            //printf("--- recieve ARP Request ---\n");
+            //printf("[\n");
+            //print_ether_header(eh);
+            //print_ether_arp(arp);
+            //printf("]\n");
 
             // 送信先IPアドレスを設定
             addr.s_addr = (arp->arp_spa[3] << 24) |
@@ -568,11 +568,11 @@ int ArpRecv(
         if(addr.s_addr == 0 || isTargetIPAddr(&addr))
         {
             // 諸々の情報を出力
-            printf("--- recieve ARP Reply ---\n");
-            printf("[\n");
-            print_ether_header(eh);
-            print_ether_arp(arp);
-            printf("]\n");
+            //printf("--- recieve ARP Reply ---\n");
+            //printf("[\n");
+            //print_ether_header(eh);
+            //print_ether_arp(arp);
+            //printf("]\n");
 
             // 送信先IPアドレスを設定
             addr.s_addr = (arp->arp_spa[3] << 24) |

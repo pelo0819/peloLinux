@@ -413,7 +413,7 @@ int IpSendLink(
         ptr += sndLen;
 
         EtherSend(soc, smac, dmac, ETHERTYPE_IP, sbuf, ptr - sbuf);
-        print_ip(ip);
+        //print_ip(ip);
 
         dptr += sndLen;
         lest -= sndLen;
