@@ -166,8 +166,6 @@ void StopPoison(void)
     printf("isPoison=%d\n", isPoisoning);
 }
 
-int IsPoisoning(){return isPoisoning;}
-
 void TransferPacket(struct ether_header *eh)
 {
 
