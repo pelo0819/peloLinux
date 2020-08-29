@@ -199,7 +199,7 @@ int maccmp(u_int8_t from_mac[6], u_int8_t to_mac[6])
         printf("no.%s from_mac=%s, to_mac=%s\n", i, from_mac[i], to_mac[i]);
         if(from_mac[i] != to_mac[i])
         {
-            printf("dismatch!!!\n")
+            printf("dismatch!!!\n");
             return -1;
         }
     }
