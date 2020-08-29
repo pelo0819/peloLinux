@@ -12,4 +12,4 @@ void SetOptArpThread(pthread_attr_t _attr, pthread_t _thread_id);
 
 void TransferPacket();
 
-int maccmp(u_int8_t *from_mac, u_int8_t *to_mac);
+int maccmp(u_int8_t from_mac[6], u_int8_t to_mac[6])
