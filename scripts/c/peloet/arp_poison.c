@@ -111,7 +111,7 @@ void StartPoison(int soc, struct in_addr *target, struct in_addr *gateway)
 
 void StopPoison(void)
 {
-    printf("[*]Stop ARP Poison");
+    printf("[*]Stop ARP Poison\n");
 
     if(isPoisoning != 1){ return; }
 
@@ -159,4 +159,5 @@ void StopPoison(void)
     // }
 
     isPoisoning = 0;
+    printf("isPoison=%s\n", isPoisoning);
 }
