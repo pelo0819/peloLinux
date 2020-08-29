@@ -24,6 +24,7 @@
 #include "icmp.h"
 #include "cmd.h"
 #include "udp.h"
+#include "arp_poison.h"
 #include "dhcp.h"
 
 // 終了フラグ　1になったら終了
@@ -116,6 +117,8 @@ int main(int argc, char *argv[])
     {
         printf("pthread_create:error\n");
     }
+
+    SetOptArpThread(attr, thread_id);
 
     // DHCPサーバーからIPアドレスを割り当てられていない場合
     if(Param.vip.s_addr == 0)
