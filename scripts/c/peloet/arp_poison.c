@@ -83,7 +83,7 @@ void *PoisonThread(void * arg)
 
 void *PoisonTest(void * arg)
 {
-    while(isPoisoning = 1)
+    while(isPoisoning == 1)
     {
         printf("POISON TEST\n");
         sleep(5);
