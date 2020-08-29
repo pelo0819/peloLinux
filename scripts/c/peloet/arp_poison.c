@@ -173,7 +173,7 @@ void TransferPacket(struct ether_header *eh)
 
     if(ntohs(eh->ether_type) != ETHERTYPE_IP)
     {
-        printf("ether type isnot ETHERTYPE_IP\n");
+        // printf("ether type isnot ETHERTYPE_IP\n");
         return;
     }
 
@@ -193,10 +193,10 @@ void TransferPacket(struct ether_header *eh)
 int maccmp(u_int8_t from_mac[6], u_int8_t to_mac[6])
 {
     int i = 0;
-    printf("length=%d\n", strlen(from_mac));
+    // printf("length=%d\n", strlen(from_mac));
     for(i = 0; i < 6; i++)
     {
-        printf("no.%s from_mac=%s, to_mac=%s\n", i, from_mac[i], to_mac[i]);
+        // printf("no.%s from_mac=%s, to_mac=%s\n", i, from_mac[i], to_mac[i]);
         if(from_mac[i] != to_mac[i])
         {
             printf("dismatch!!!\n");
