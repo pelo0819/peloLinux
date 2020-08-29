@@ -18,6 +18,9 @@ extern PARAM Param;
 
 int isPoisoning = 0;
 
+pthread_attr_t attr;
+pthread_t thread_id;
+
 struct in_addr target_addr;
 struct in_addr gateway_addr;
 u_int8_t t_mac[6];
@@ -82,14 +85,17 @@ void *PoisonTest(void * arg)
     printf("POISON TEST\n");
 }
 
+void SetOptArpThread(pthread_attr_t _attr, pthread_t _thread_id)
+{
+    attr = _attr;
+    thread_id = _thread_id;
+}
+
 void StartPoison(int soc, struct in_addr *target, struct in_addr *gateway)
 {
     isPoisoning = 1;
     target_addr = *target;
     gateway_addr = *gateway;
-
-    pthread_attr_t attr;
-    pthread_t thread_id;
 
     if(pthread_create(&thread_id, &attr, PoisonTest, NULL) != 0)
     {
