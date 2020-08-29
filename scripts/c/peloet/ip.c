@@ -206,16 +206,16 @@ int IpRecv(int soc, u_int8_t *raw, int raw_len, struct ether_header *eh, u_int8_
     char buf1[80];
     char buf2[80];
 
-    if(Param.vip.s_addr != 0)
-    {
-        inet_ntop(AF_INET, &Param.vip.s_addr, buf1, sizeof(buf1));
-        inet_ntop(AF_INET, &ip->ip_dst.s_addr, buf2, sizeof(buf2));
-        if(strcmp(buf1, buf2) != 0)
-        {
-            // printf("recv Ip packet but not for me.\n");
-            return 0;
-        }
-    }
+    // if(Param.vip.s_addr != 0)
+    // {
+    //     inet_ntop(AF_INET, &Param.vip.s_addr, buf1, sizeof(buf1));
+    //     inet_ntop(AF_INET, &ip->ip_dst.s_addr, buf2, sizeof(buf2));
+    //     if(strcmp(buf1, buf2) != 0)
+    //     {
+    //         printf("recv Ip packet but not for me.\n");
+    //         return 0;
+    //     }
+    // }
     
 
     optionLen = ip->ip_hl * 4 -sizeof(struct ip);

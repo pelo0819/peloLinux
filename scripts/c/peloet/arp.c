@@ -168,7 +168,6 @@ int ArpAddTable(
                 memcpy(ArpTable[i].mac, mac, 6);
                 ArpTable[i].timestamp = time(NULL);
                 pthread_rwlock_unlock(&ArpTableLock);
-                printf("--- update ARP table --- \n");
                 ArpShowTable();
                 return i;
             }
@@ -191,7 +190,6 @@ int ArpAddTable(
 
     pthread_rwlock_unlock(&ArpTableLock);
 
-    printf("--- update ARP table --- \n");    
     ArpShowTable();
 }
 
@@ -268,7 +266,6 @@ int ArpShowTable()
     int i;
 
     pthread_rwlock_rdlock(&ArpTableLock);
-    printf("---Start ARP Table ---\n");
     for(i=0; i < ARP_TABLE_NO; i++)
     {
         if(memcmp(ArpTable[i].mac, AllZeroMac, 6) == 0)
@@ -282,7 +279,6 @@ int ArpShowTable()
             printf("time=%d\n", ArpTable[i].timestamp);
         }
     }
-    printf("--- End ARP Table ---\n");
     pthread_rwlock_unlock(&ArpTableLock);
 
     return 0;
@@ -406,7 +402,7 @@ int ArpSend(
     // 送信先IPアドレスを設定
     memcpy(arp.arp_tpa, daddr, 4);
 
-    printf("--- send ARP --- \n[\n");
+    //printf("--- send ARP --- \n[\n");
 
     EtherSend(
         soc,
@@ -418,7 +414,7 @@ int ArpSend(
     );
 
     //print_ether_arp(&arp);
-    printf("]\n");
+    //printf("]\n");
     return 0;
 }
 
