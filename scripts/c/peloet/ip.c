@@ -212,7 +212,7 @@ int IpRecv(int soc, u_int8_t *raw, int raw_len, struct ether_header *eh, u_int8_
         inet_ntop(AF_INET, &ip->ip_dst.s_addr, buf2, sizeof(buf2));
         if(strcmp(buf1, buf2) != 0)
         {
-            printf("recv Ip packet but not for me.\n");
+            // printf("recv Ip packet but not for me.\n");
             return 0;
         }
     }
