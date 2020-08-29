@@ -112,16 +112,16 @@ int EtherRecv(int soc, u_int8_t *in_ptr, int in_len)
     //     return -1;
     // }
 
-    char t_ip = "192.168.3.9";
-    struct in_addr t_addr;
-	inet_aton("192.168.3.9", &t_addr);
-    u_int8_t t_mac[6];
+    //char t_ip = "192.168.3.9";
+    //struct in_addr t_addr;
+    //inet_aton("192.168.3.9", &t_addr);
+    // u_int8_t t_mac[6];
     // ArpSearchTable(&t_addr, t_mac);
     
-    if(memcmp(eh->ether_dhost, t_mac, 6) != 0 && memcmp(eh->ether_shost, t_mac, 6) != 0)
-    {
-        return -1;
-    }
+    //if(memcmp(eh->ether_dhost, t_mac, 6) != 0 && memcmp(eh->ether_shost, t_mac, 6) != 0)
+    //{
+    //    return -1;
+    //}
 
 
     if (ntohs(eh->ether_type) == ETHERTYPE_ARP) 
