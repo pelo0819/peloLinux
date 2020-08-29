@@ -260,8 +260,11 @@ int IpRecv(int soc, u_int8_t *raw, int raw_len, struct ether_header *eh, u_int8_
     if(!(ntohs(ip->ip_off) & IP_MF))
     {
         char buf3[80];
+        char buf4[80];
+
         inet_ntop(AF_INET, &ip->ip_src, buf3, sizeof(buf3));
-        printf("SRC IP ADDRESS=%s, sizeof=%d!!!!!!!!!!!!!!!!!!!!", buf3, strlen(buf3));
+        inet_ntop(AF_INET, &ip->ip_dst, buf4, sizeof(buf4));
+        printf("SrcIpAddr=%s, DstIpAddr", buf3, buf4);
         IpRecvBuf[no].len = off + plen;
         if(ip->ip_p == IPPROTO_ICMP)
         {
