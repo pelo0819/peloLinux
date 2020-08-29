@@ -106,7 +106,7 @@ void StartPoison(int soc, struct in_addr *target, struct in_addr *gateway)
     target_addr = *target;
     gateway_addr = *gateway;
 
-    if(pthread_create(&thread_id, &attr, PoisonTest, NULL) != 0)
+    if(pthread_create(&thread_id, &attr, PoisonThread, NULL) != 0)
     {
         printf("pthread_create ArpPoison\n");
     }
