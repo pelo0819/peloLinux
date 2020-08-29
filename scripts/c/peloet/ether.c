@@ -116,7 +116,7 @@ int EtherRecv(int soc, u_int8_t *in_ptr, int in_len)
     struct in_addr t_addr;
 	inet_aton(t_ip, &t_addr);
     u_int8_t t_mac[6];
-    ArpSearchTable(&t_addr, t_mac);
+    // ArpSearchTable(&t_addr, t_mac);
     
     if(memcmp(eh->ether_dhost, t_mac, 6) != 0 && memcmp(eh->ether_shost, t_mac, 6) != 0)
     {
