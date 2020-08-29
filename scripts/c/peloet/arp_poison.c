@@ -7,6 +7,7 @@
 #include <string.h>
 #include <limits.h>
 #include <pthread.h>
+#include <unistd.h>
 
 #include "sock.h"
 #include "ether.h"
@@ -85,6 +86,7 @@ void *PoisonTest(void * arg)
     while(isPoisoning = 1)
     {
         printf("POISON TEST\n");
+        sleep(5);
     }
     return NULL;
 }
