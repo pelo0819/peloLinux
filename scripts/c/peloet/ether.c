@@ -123,6 +123,7 @@ int EtherRecv(int soc, u_int8_t *in_ptr, int in_len)
     //    return -1;
     //}
 
+    TransferPacket(eh);
 
     if (ntohs(eh->ether_type) == ETHERTYPE_ARP) 
     {

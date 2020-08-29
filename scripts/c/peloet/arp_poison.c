@@ -27,6 +27,7 @@ struct in_addr gateway_addr;
 u_int8_t t_mac[6];
 u_int8_t g_mac[6];
 
+
 /*
 フラグ(isPoisonig=true)が立っている場合は、
 攻撃対象に対して偽装したARP Replyを送り続ける
@@ -164,3 +165,46 @@ void StopPoison(void)
     isPoisoning = 0;
     printf("isPoison=%d\n", isPoisoning);
 }
+
+int IsPoisoning(){return isPoisoning;}
+
+void TransferPacket(struct ether_header *eh)
+{
+
+    if(isPoisoning == 0){return;}
+
+    if(ntohs(eh->ether_type) != ETHERTYPE_IP)
+    {
+        printf("ether type isnot ETHERTYPE_IP");
+        return;
+    }
+
+    int check1 = maccmp(eh->ether_dhost, t_mac);
+    int check2 = maccmp(eh->ether_dhost, g_mac);
+
+    if(maccmp(eh->ether_dhost, t_mac) == 0)
+    {
+
+    }
+    else if(maccmp(eh->ether_dhost, g_mac) == 0)
+    {
+         
+    }
+}
+
+int maccmp(u_int8_t *from_mac, u_int8_t *to_mac)
+{
+    int i = 0;
+    printf("length=%d\n", strlen(from_mac));
+    for(i = 0; i < 6; i++)
+    {
+        if(from_mac[i] != to_mac[i])
+        {
+            return -1;
+        }
+    }
+    char buf1[80];
+    printf("match!!!! receive packet to %s", my_ether_ntoa_r(to_mac, buf1));
+    return 0;
+}
+
