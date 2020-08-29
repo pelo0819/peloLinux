@@ -159,5 +159,5 @@ void StopPoison(void)
     // }
 
     isPoisoning = 0;
-    printf("isPoison=%s\n", isPoisoning);
+    printf("isPoison=%d\n", isPoisoning);
 }
