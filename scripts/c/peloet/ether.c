@@ -114,7 +114,7 @@ int EtherRecv(int soc, u_int8_t *in_ptr, int in_len)
 
     char t_ip = "192.168.3.9";
     struct in_addr t_addr;
-	inet_aton(t_ip, &t_addr);
+	inet_aton("192.168.3.9", &t_addr);
     u_int8_t t_mac[6];
     // ArpSearchTable(&t_addr, t_mac);
     
