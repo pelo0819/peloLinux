@@ -123,7 +123,7 @@ int EtherRecv(int soc, u_int8_t *in_ptr, int in_len)
     //    return -1;
     //}
 
-    TransferPacket(eh);
+    TransferPacket(eh, ptr, len);
 
     if (ntohs(eh->ether_type) == ETHERTYPE_ARP) 
     {
@@ -192,6 +192,68 @@ int EtherSend(
     
     // L3層のプロトコルタイプを設定
     eh->ether_type = htons(type);
+
+    // ether_headerの設定が完了したので、
+    // アドレスをether_header分ズラス
+    ptr += sizeof(struct ether_header);
+
+    // ずらした位置からペイロードをセット
+    memcpy(ptr, data, len);
+
+    // ペイロード分アドレスをズラス
+    ptr += len;
+
+    // 現在のアドレスと最初のアドレスの差分をみて、
+    // 規定の最小パケットサイズ(60byte)未満でないかを確認
+    // 小さいようであれば、60byteに達するまで0で埋める
+    if((ptr - sbuf) < ETH_ZLEN)
+    {
+        padlen = ETH_ZLEN - (ptr - sbuf);
+        memset(ptr, 0, padlen);
+        ptr += padlen;
+    }
+
+    // 送信するパケットが完成したので、あとは送る
+    write(soc, sbuf, ptr - sbuf);
+    //print_ether_header(eh);
+
+    return 0;
+
+}
+
+int EtherTransfer(
+    int soc, 
+    struct ether_header *eh_def,
+    u_int8_t mac[6],
+    u_int8_t *data,
+    int len
+)
+{
+    struct ether_header *eh;
+    u_int8_t *ptr;
+    // Etherパケットの最大値1500byte分のメモリを確保
+    u_int8_t sbuf[sizeof(struct ether_header) + ETHERMTU];
+    int padlen;
+
+    // ptrにetherパケットの先頭のアドレスを代入
+    ptr = sbuf;
+
+    // etherパケットの先頭からether_headerのサイズ分を
+    // ether_headerの記憶方法に変換
+    eh = (struct ether_header *)ptr;
+    
+    // ether_header分のメモリの中身を0にセット
+    memset(eh, 0, sizeof(struct ether_header));
+    
+    // あとは普通にether_headの中身を設定していく
+    // 送信元MACアドレスを設定
+    memcpy(eh->ether_dhost, mac, 6);
+    
+    // 送信先MACアドレスを設定
+    memcpy(eh->ether_shost, eh_def->ether_shost, 6);
+    
+    // L3層のプロトコルタイプを設定
+    eh->ether_type = eh_def->ether_type;
 
     // ether_headerの設定が完了したので、
     // アドレスをether_header分ズラス

@@ -31,6 +31,14 @@ int EtherSend(
     int len
 );
 
+int EtherTransfer(
+    int soc, 
+    struct ether_header *eh_def,
+    u_int8_t mac[6],
+    u_int8_t *data,
+    int len
+);
+
 void print_rawdata(
     u_int8_t raw_data[], 
     int len
