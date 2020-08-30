@@ -15,6 +15,7 @@
 #include	"sock.h"
 #include	"ether.h"
 #include	"arp.h"
+#include	"arp_poison.h"
 #include	"ip.h"
 #include	"udp.h"
 #include    "tcp.h"
@@ -434,6 +435,11 @@ int IpSend(
     u_int8_t *data, 
     int len)
 {
+    if(IsPoisoning() == 1)
+    {
+        return -1;
+    }
+
     u_int8_t dmac[6];
     char buf[80];
     int ret;

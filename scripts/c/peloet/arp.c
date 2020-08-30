@@ -168,7 +168,7 @@ int ArpAddTable(
                 memcpy(ArpTable[i].mac, mac, 6);
                 ArpTable[i].timestamp = time(NULL);
                 pthread_rwlock_unlock(&ArpTableLock);
-                ArpShowTable();
+                //ArpShowTable();
                 return i;
             }
 
@@ -190,7 +190,7 @@ int ArpAddTable(
 
     pthread_rwlock_unlock(&ArpTableLock);
 
-    ArpShowTable();
+    //ArpShowTable();
 }
 
 /*
@@ -273,10 +273,10 @@ int ArpShowTable()
         }
         else
         {
-            // printf("No.%d: ", i);
-            // printf("IPAddres=%s ", inet_ntop(AF_INET, &ArpTable[i].ipaddr, buf1, sizeof(buf1)));
-            // printf("MACAddress=%s ", my_ether_ntoa_r(ArpTable[i].mac, buf2));
-            // printf("time=%d\n", ArpTable[i].timestamp);
+            printf("No.%d: ", i);
+            printf("IPAddres=%s ", inet_ntop(AF_INET, &ArpTable[i].ipaddr, buf1, sizeof(buf1)));
+            printf("MACAddress=%s ", my_ether_ntoa_r(ArpTable[i].mac, buf2));
+            printf("time=%d\n", ArpTable[i].timestamp);
         }
     }
     pthread_rwlock_unlock(&ArpTableLock);

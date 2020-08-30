@@ -27,6 +27,11 @@ struct in_addr gateway_addr;
 u_int8_t t_mac[6];
 u_int8_t g_mac[6];
 
+int IsPoisoning()
+{
+    return isPoisoning;
+}
+
 
 /*
 フラグ(isPoisonig=true)が立っている場合は、
