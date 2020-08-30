@@ -164,6 +164,9 @@ void StopPoison(void)
 
     isPoisoning = 0;
     printf("isPoison=%d\n", isPoisoning);
+    printf("\n");
+    printf("\n");
+    printf("\n");
 }
 
 void TransferPacket(struct ether_header *eh, u_int8_t *data, int len)
@@ -181,11 +184,13 @@ void TransferPacket(struct ether_header *eh, u_int8_t *data, int len)
     if(maccmp(eh->ether_dhost, t_mac) == 0)
     {
         EtherTransfer(soc, eh, t_mac, data, len);
+        print_hex(data, len);
     }
     // 本来ならtargetからgatewayに向かうパケットなのでMACをgatewayに変更する
     else if(maccmp(eh->ether_shost, t_mac) == 0)
     {
         EtherTransfer(soc, eh, g_mac, data, len);
+        print_hex(data, len);
     }
 }
 

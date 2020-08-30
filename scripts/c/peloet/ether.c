@@ -278,7 +278,7 @@ int EtherTransfer(
     // 送信するパケットが完成したので、あとは送る
     write(soc, sbuf, ptr - sbuf);
     //print_ether_header(eh);
-
+    printf("EtherTransfer!!!!\n");
     return 0;
 
 }
