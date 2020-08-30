@@ -185,10 +185,12 @@ void TransferPacket(struct ether_header *eh, u_int8_t *data, int len, u_int8_t *
 
     int soc = GetDeviceSoc();
 
-    printf("--- EtherTransfer ---\n");
+    printf("--- Start EtherTransfer ---\n");
     // 本来ならgatewayからtargetに向かうパケットなのでMACをtargetに変更する
     if(maccmp(eh->ether_dhost, t_mac) == 0)
     {
+        char buff[80];
+        printf("EtherTransfer to %s\n", my_ether_ntoa_r(t_mac, buff));
         EtherTransfer(soc, eh, t_mac, data, len);
     }
     // 本来ならtargetからgatewayに向かうパケットなのでMACをgatewayに変更する
@@ -202,7 +204,7 @@ void TransferPacket(struct ether_header *eh, u_int8_t *data, int len, u_int8_t *
     
     print_hex(all_data, len_all);
 
-    printf("--- EtherTransfer ---\n");
+    printf("--- End EtherTransfer ---\n");
 
 }
 
