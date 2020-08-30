@@ -184,7 +184,7 @@ void TransferPacket(struct ether_header *eh)
     {
 
     }
-    else if(maccmp(eh->ether_dhost, g_mac) == 0)
+    else if(maccmp(eh->ether_shost, t_mac) == 0)
     {
          
     }
