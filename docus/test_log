@@ -1,0 +1,931 @@
+IP-TTL = 64
+MTU = 1500
+device = eth0
+------------------------------
+soc index in show_ifreq : 4
+UP BROADCAST PROMISC MULTICAST 
+mtu = 1500
+myip = 192.168.3.12
+ifreq.ifr_hwaddr.sa_data : 232:224:183:156:62:84:0:0:0:0:0:0:0:0:
+mymac = e8:e0:b7:9c:3e:54
+------------------------------
+vmac     = e8:e0:b7:9c:3e:54
+vip      = 192.168.3.12
+vmask    = 255.255.255.0
+gateway  = 192.168.3.1
+DHCP request lease time=0
+set signals
+UdpRecv:bad udp checksum(c8ff):udplen=403
+ping UdpRecv:bad udp checksum(cbff):udplen=133
+
+DoCmdPing:no arg
+pinUdpRecv:bad udp checksum(c8ff):udplen=403
+g 192.168.3.9
+ping 192.168.3UdpRecv:bad udp checksum(cbff):udplen=133
+.1
+UdpRecv:bad udp checksum(c8ff):udplen=403
+arp -a
+No.0: IPAddres=192.168.3.2 MACAddress=3c:28:6d:dd:5f:d6 time=1598781455
+No.1: IPAddres=192.168.3.5 MACAddress=1c:f2:9a:6c:9e:f2 time=1598781455
+No.2: IPAddres=192.168.3.9 MACAddress=c0:7c:d1:3e:c6:57 time=1598781447
+No.3: IPAddres=192.168.3.1 MACAddress=70:77:81:7f:99:62 time=1598781460
+UdpRecv:bad udp checksum(cbff):udplen=133
+UdpRecv:bad udp checksum(c8ff):udplen=403
+arp -p 192.16UdpRecv:bad udp checksum(ceff):udplen=85
+8UdpRecv:bad udp checksum(c6ff):udplen=133
+UdpRecv:bad udp checksum(cbff):udplen=133
+
+DoCmdArp: -p no arg
+arp -p 192.168.3.9UdpRecv:bad udp checksum(c8ff):udplen=403
+    192.168.3.1
+input target:192.168.3.9
+input gateway:192.168.3.1
+UdpRecv:bad udp checksum(cbff):udplen=133
+UdpRecv:bad udp checksum(cbff):udplen=133
+UdpRecv:bad udp checksum(c8ff):udplen=403
+UdpRecv:bad udp checksum(cbff):udplen=133
+UdpRecv:bad udp checksum(cbff):udplen=133
+UdpRecv:bad udp checksum(c6ff):udplen=133
+UdpRecv:bad udp checksum(c8ff):udplen=403
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 34 96 EE 40 00 80 06 D0 DB C0 A8 03 09    E..4..@.........
+DB 75 F3 D2 DC 09 00 50 E9 76 02 89 00 00 00 00    .u.....P.v......
+80 02 FA F0 18 CC 00 00 02 04 05 B4 01 03 03 08    ................
+01 01 04 02                                        ....            
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56329
+seq=0
+ack_seq=3916825226
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=6010,urg_ptr=0
+]
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 34 96 EF 40 00 80 06 D0 DA C0 A8 03 09    E..4..@.........
+DB 75 F3 D2 DC 0A 00 50 7D FD 11 C0 00 00 00 00    .u.....P}.......
+80 02 FA F0 75 0D 00 00 02 04 05 B4 01 03 03 08    ....u...........
+01 01 04 02                                        ....            
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56330
+seq=0
+ack_seq=2113737153
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=bc51,urg_ptr=0
+]
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 39 18 F5 00 00 80 11 9A 64 C0 A8 03 09    E..9.......d....
+C0 A8 03 01 F5 B6 00 35 00 25 F8 30 07 89 01 00    .......5.%.0....
+00 01 00 00 00 00 00 00 07 79 61 6D 2D 77 65 62    .........yam-web
+03 6E 65 74 00 00 1C 00 01                         .net.....       
+UdpRecv:bad udp checksum(c6ff):udplen=37
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 34 96 F0 40 00 80 06 D0 D9 C0 A8 03 09    E..4..@.........
+DB 75 F3 D2 DC 0B 00 50 9D E4 29 5B 00 00 00 00    .u.....P..)[....
+80 02 FA F0 3D 8A 00 00 02 04 05 B4 01 03 03 08    ....=...........
+01 01 04 02                                        ....            
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56331
+seq=0
+ack_seq=2648975708
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=84ce,urg_ptr=0
+]
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 34 96 F1 40 00 80 06 D0 D8 C0 A8 03 09    E..4..@.........
+DB 75 F3 D2 DC 09 00 50 E9 76 02 89 00 00 00 00    .u.....P.v......
+80 02 FA F0 18 CC 00 00 02 04 05 B4 01 03 03 08    ................
+01 01 04 02                                        ....            
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56329
+seq=0
+ack_seq=3916825226
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=6010,urg_ptr=0
+]
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 34 96 F2 40 00 80 06 D0 D7 C0 A8 03 09    E..4..@.........
+DB 75 F3 D2 DC 0A 00 50 7D FD 11 C0 00 00 00 00    .u.....P}.......
+80 02 FA F0 75 0D 00 00 02 04 05 B4 01 03 03 08    ....u...........
+01 01 04 02                                        ....            
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56330
+seq=0
+ack_seq=2113737153
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=bc51,urg_ptr=0
+]
+option,pad(12)=02,04,05,86,01,01,04,02,01,03,03,07
+TcpRecv:no target:56330
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56330,dest=80
+seq=2113737153
+ack_seq=1300355256
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=8a80,urg_ptr=0
+]
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 34 96 F3 40 00 80 06 D0 D6 C0 A8 03 09    E..4..@.........
+DB 75 F3 D2 DC 0B 00 50 9D E4 29 5B 00 00 00 00    .u.....P..)[....
+80 02 FA F0 3D 8A 00 00 02 04 05 B4 01 03 03 08    ....=...........
+01 01 04 02                                        ....            
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56331
+seq=0
+ack_seq=2648975708
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=84ce,urg_ptr=0
+]
+option,pad(12)=02,04,05,86,01,01,04,02,01,03,03,07
+TcpRecv:no target:56331
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56331,dest=80
+seq=2648975708
+ack_seq=822503817
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=dea7,urg_ptr=0
+]
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 53 D3 88 40 00 80 06 67 28 C0 A8 03 09    E..S..@...g(....
+28 77 D3 CB DB EB 01 BB 79 D6 02 92 AE 90 62 21    (w......y.....b!
+50 18 03 FC 47 61 00 00 17 03 03 00 26 00 00 00    P...Ga......&...
+00 00 00 00 10 56 C0 39 0A 4F 55 D3 E0 0E 75 DD    .....V.9.OU...u.
+B0 3B 1D 61 7E 54 82 96 B1 5C EB 47 1D 1A 0C 74    .;.a~T...\.G...t
+A3 32 3B                                           .2;             
+TcpRecv:bad tcp checksum(8cff)
+TcpRecv:no target:56299
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56299,dest=443
+seq=2044068541
+ack_seq=2928697890
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=84ec,urg_ptr=0
+]
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 34 96 F4 40 00 80 06 D0 D5 C0 A8 03 09    E..4..@.........
+DB 75 F3 D2 DC 0C 00 50 3D 39 B5 78 00 00 00 00    .u.....P=9.x....
+80 02 FA F0 12 17 00 00 02 04 05 B4 01 03 03 08    ................
+01 01 04 02                                        ....            
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56332
+seq=0
+ack_seq=1027192185
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=595b,urg_ptr=0
+]
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 53 D3 89 40 00 80 06 67 27 C0 A8 03 09    E..S..@...g'....
+28 77 D3 CB DB EB 01 BB 79 D6 02 92 AE 90 62 21    (w......y.....b!
+50 18 03 FC 47 61 00 00 17 03 03 00 26 00 00 00    P...Ga......&...
+00 00 00 00 10 56 C0 39 0A 4F 55 D3 E0 0E 75 DD    .....V.9.OU...u.
+B0 3B 1D 61 7E 54 82 96 B1 5C EB 47 1D 1A 0C 74    .;.a~T...\.G...t
+A3 32 3B                                           .2;             
+TcpRecv:bad tcp checksum(8cff)
+TcpRecv:no target:56299
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56299,dest=443
+seq=2044068541
+ack_seq=2928697890
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=84ec,urg_ptr=0
+]
+option,pad(12)=01,01,05,0a,79,d6,02,92,79,d6,02,bd
+TcpRecv:no target:56299
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56299,dest=443
+seq=2044068541
+ack_seq=2928698064
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=843e,urg_ptr=0
+]
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 53 D3 8A 40 00 80 06 67 26 C0 A8 03 09    E..S..@...g&....
+28 77 D3 CB DB EB 01 BB 79 D6 02 92 AE 90 62 21    (w......y.....b!
+50 18 03 FC 47 61 00 00 17 03 03 00 26 00 00 00    P...Ga......&...
+00 00 00 00 10 56 C0 39 0A 4F 55 D3 E0 0E 75 DD    .....V.9.OU...u.
+B0 3B 1D 61 7E 54 82 96 B1 5C EB 47 1D 1A 0C 74    .;.a~T...\.G...t
+A3 32 3B                                           .2;             
+TcpRecv:bad tcp checksum(8cff)
+option,pad(12)=01,01,05,0a,79,d6,02,92,79,d6,02,bd
+TcpRecv:no target:56299
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56299,dest=443
+seq=2044068541
+ack_seq=2928698064
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=843e,urg_ptr=0
+]
+TcpRecv:no target:56299
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56299,dest=443
+seq=2044068541
+ack_seq=2928697890
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=84ec,urg_ptr=0
+]
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 34 96 F5 40 00 80 06 D0 D4 C0 A8 03 09    E..4..@.........
+DB 75 F3 D2 DC 0C 00 50 3D 39 B5 78 00 00 00 00    .u.....P=9.x....
+80 02 FA F0 12 17 00 00 02 04 05 B4 01 03 03 08    ................
+01 01 04 02                                        ....            
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56332
+seq=0
+ack_seq=1027192185
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=595b,urg_ptr=0
+]
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 53 D3 8B 40 00 80 06 67 25 C0 A8 03 09    E..S..@...g%....
+28 77 D3 CB DB EB 01 BB 79 D6 02 92 AE 90 62 21    (w......y.....b!
+50 18 03 FC 47 61 00 00 17 03 03 00 26 00 00 00    P...Ga......&...
+00 00 00 00 10 56 C0 39 0A 4F 55 D3 E0 0E 75 DD    .....V.9.OU...u.
+B0 3B 1D 61 7E 54 82 96 B1 5C EB 47 1D 1A 0C 74    .;.a~T...\.G...t
+A3 32 3B                                           .2;             
+TcpRecv:bad tcp checksum(8cff)
+option,pad(12)=01,01,05,0a,79,d6,02,92,79,d6,02,bd
+TcpRecv:no target:56299
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56299,dest=443
+seq=2044068541
+ack_seq=2928698064
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=843e,urg_ptr=0
+]
+TcpRecv:no target:56299
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56299,dest=443
+seq=2044068541
+ack_seq=2928697890
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=84ec,urg_ptr=0
+]
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 34 96 F6 40 00 80 06 D0 D3 C0 A8 03 09    E..4..@.........
+DB 75 F3 D2 DC 09 00 50 E9 76 02 89 00 00 00 00    .u.....P.v......
+80 02 FA F0 18 CC 00 00 02 04 05 B4 01 03 03 08    ................
+01 01 04 02                                        ....            
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56329
+seq=0
+ack_seq=3916825226
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=6010,urg_ptr=0
+]
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 34 96 F7 40 00 80 06 D0 D2 C0 A8 03 09    E..4..@.........
+DB 75 F3 D2 DC 0A 00 50 7D FD 11 C0 00 00 00 00    .u.....P}.......
+80 02 FA F0 75 0D 00 00 02 04 05 B4 01 03 03 08    ....u...........
+01 01 04 02                                        ....            
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56330
+seq=0
+ack_seq=2113737153
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=bc51,urg_ptr=0
+]
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 39 18 F6 00 00 80 11 9A 63 C0 A8 03 09    E..9.......c....
+C0 A8 03 01 F5 B6 00 35 00 25 F8 30 07 89 01 00    .......5.%.0....
+00 01 00 00 00 00 00 00 07 79 61 6D 2D 77 65 62    .........yam-web
+03 6E 65 74 00 00 1C 00 01                         .net.....       
+UdpRecv:bad udp checksum(c6ff):udplen=37
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 34 96 F8 40 00 80 06 D0 D1 C0 A8 03 09    E..4..@.........
+DB 75 F3 D2 DC 0B 00 50 9D E4 29 5B 00 00 00 00    .u.....P..)[....
+80 02 FA F0 3D 8A 00 00 02 04 05 B4 01 03 03 08    ....=...........
+01 01 04 02                                        ....            
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56331
+seq=0
+ack_seq=2648975708
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=84ce,urg_ptr=0
+]
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 53 D3 8C 40 00 80 06 67 24 C0 A8 03 09    E..S..@...g$....
+28 77 D3 CB DB EB 01 BB 79 D6 02 92 AE 90 62 21    (w......y.....b!
+50 18 03 FC 47 61 00 00 17 03 03 00 26 00 00 00    P...Ga......&...
+00 00 00 00 10 56 C0 39 0A 4F 55 D3 E0 0E 75 DD    .....V.9.OU...u.
+B0 3B 1D 61 7E 54 82 96 B1 5C EB 47 1D 1A 0C 74    .;.a~T...\.G...t
+A3 32 3B                                           .2;             
+TcpRecv:bad tcp checksum(8cff)
+option,pad(12)=01,01,05,0a,79,d6,02,92,79,d6,02,bd
+TcpRecv:no target:56299
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56299,dest=443
+seq=2044068541
+ack_seq=2928698064
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=843e,urg_ptr=0
+]
+TcpRecv:no target:56299
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56299,dest=443
+seq=2044068541
+ack_seq=2928697890
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=84ec,urg_ptr=0
+]
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 34 96 F9 40 00 80 06 D0 D0 C0 A8 03 09    E..4..@.........
+DB 75 F3 D2 DC 0C 00 50 3D 39 B5 78 00 00 00 00    .u.....P=9.x....
+80 02 FA F0 12 17 00 00 02 04 05 B4 01 03 03 08    ................
+01 01 04 02                                        ....            
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56332
+seq=0
+ack_seq=1027192185
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=595b,urg_ptr=0
+]
+option,pad(12)=02,04,05,86,01,01,04,02,01,03,03,07
+TcpRecv:no target:56332
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56332,dest=80
+seq=1027192185
+ack_seq=2155709050
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=4acc,urg_ptr=0
+]
+UdpRecv:bad udp checksum(6cff):udplen=133
+UdpRecv:bad udp checksum(6cff):udplen=133
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 53 D3 8D 40 00 80 06 67 23 C0 A8 03 09    E..S..@...g#....
+28 77 D3 CB DB EB 01 BB 79 D6 02 92 AE 90 62 21    (w......y.....b!
+50 18 03 FC 47 61 00 00 17 03 03 00 26 00 00 00    P...Ga......&...
+00 00 00 00 10 56 C0 39 0A 4F 55 D3 E0 0E 75 DD    .....V.9.OU...u.
+B0 3B 1D 61 7E 54 82 96 B1 5C EB 47 1D 1A 0C 74    .;.a~T...\.G...t
+A3 32 3B                                           .2;             
+TcpRecv:bad tcp checksum(fbff)
+option,pad(12)=01,01,05,0a,79,d6,02,92,79,d6,02,bd
+TcpRecv:no target:56299
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56299,dest=443
+seq=2044068541
+ack_seq=2928698064
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=843e,urg_ptr=0
+]
+TcpRecv:no target:56299
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56299,dest=443
+seq=2044068541
+ack_seq=2928697890
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=84ec,urg_ptr=0
+]
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 34 96 FA 40 00 80 06 D0 CF C0 A8 03 09    E..4..@.........
+DB 75 F3 D2 DC 09 00 50 E9 76 02 89 00 00 00 00    .u.....P.v......
+80 02 FA F0 18 CC 00 00 02 04 05 B4 01 03 03 08    ................
+01 01 04 02                                        ....            
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56329
+seq=0
+ack_seq=3916825226
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=6010,urg_ptr=0
+]
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 34 96 FB 40 00 80 06 D0 CE C0 A8 03 09    E..4..@.........
+DB 75 F3 D2 DC 0A 00 50 7D FD 11 C0 00 00 00 00    .u.....P}.......
+80 02 FA F0 75 0D 00 00 02 04 05 B4 01 03 03 08    ....u...........
+01 01 04 02                                        ....            
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56330
+seq=0
+ack_seq=2113737153
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=bc51,urg_ptr=0
+]
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 39 18 F7 00 00 80 11 9A 62 C0 A8 03 09    E..9.......b....
+C0 A8 03 01 F5 B6 00 35 00 25 F8 30 07 89 01 00    .......5.%.0....
+00 01 00 00 00 00 00 00 07 79 61 6D 2D 77 65 62    .........yam-web
+03 6E 65 74 00 00 1C 00 01                         .net.....       
+UdpRecv:bad udp checksum(c6ff):udplen=37
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 34 96 FC 40 00 80 06 D0 CD C0 A8 03 09    E..4..@.........
+DB 75 F3 D2 DC 0B 00 50 9D E4 29 5B 00 00 00 00    .u.....P..)[....
+80 02 FA F0 3D 8A 00 00 02 04 05 B4 01 03 03 08    ....=...........
+01 01 04 02                                        ....            
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56331
+seq=0
+ack_seq=2648975708
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=84ce,urg_ptr=0
+]
+option,pad(12)=02,04,05,86,01,01,04,02,01,03,03,07
+TcpRecv:no target:56331
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56331,dest=80
+seq=2648975708
+ack_seq=822503817
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=dea7,urg_ptr=0
+]
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 34 96 FD 40 00 80 06 D0 CC C0 A8 03 09    E..4..@.........
+DB 75 F3 D2 DC 0C 00 50 3D 39 B5 78 00 00 00 00    .u.....P=9.x....
+80 02 FA F0 12 17 00 00 02 04 05 B4 01 03 03 08    ................
+01 01 04 02                                        ....            
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56332
+seq=0
+ack_seq=1027192185
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=595b,urg_ptr=0
+]
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 3E 18 F8 00 00 80 11 9A 5C C0 A8 03 09    E..>.......\....
+C0 A8 03 01 E9 65 00 35 00 2A 09 4D 85 39 01 00    .....e.5.*.M.9..
+00 01 00 00 00 00 00 00 03 64 6E 73 08 6D 73 66    .........dns.msf
+74 6E 63 73 69 03 63 6F 6D 00 00 1C 00 01          tncsi.com.....  
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 39 18 F9 00 00 80 11 9A 60 C0 A8 03 09    E..9.......`....
+C0 A8 03 01 D6 6B 00 35 00 25 BE A4 60 60 01 00    .....k.5.%..``..
+00 01 00 00 00 00 00 00 07 79 61 6D 2D 77 65 62    .........yam-web
+03 6E 65 74 00 00 1C 00 01                         .net.....       
+UdpRecv:bad udp checksum(b0ff):udplen=37
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 53 D3 8E 40 00 80 06 67 22 C0 A8 03 09    E..S..@...g"....
+28 77 D3 CB DB EB 01 BB 79 D6 02 92 AE 90 62 21    (w......y.....b!
+50 18 03 FC 47 61 00 00 17 03 03 00 26 00 00 00    P...Ga......&...
+00 00 00 00 10 56 C0 39 0A 4F 55 D3 E0 0E 75 DD    .....V.9.OU...u.
+B0 3B 1D 61 7E 54 82 96 B1 5C EB 47 1D 1A 0C 74    .;.a~T...\.G...t
+A3 32 3B                                           .2;             
+TcpRecv:bad tcp checksum(8cff)
+option,pad(12)=01,01,05,0a,79,d6,02,92,79,d6,02,bd
+TcpRecv:no target:56299
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56299,dest=443
+seq=2044068541
+ack_seq=2928698064
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=843e,urg_ptr=0
+]
+TcpRecv:no target:56299
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56299,dest=443
+seq=2044068541
+ack_seq=2928697890
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=84ec,urg_ptr=0
+]
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 39 18 FA 00 00 80 11 9A 5F C0 A8 03 09    E..9......._....
+C0 A8 03 01 D6 6B 00 35 00 25 BE A4 60 60 01 00    .....k.5.%..``..
+00 01 00 00 00 00 00 00 07 79 61 6D 2D 77 65 62    .........yam-web
+03 6E 65 74 00 00 1C 00 01                         .net.....       
+UdpRecv:bad udp checksum(c6ff):udplen=37
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 34 96 FE 40 00 80 06 D0 CB C0 A8 03 09    E..4..@.........
+DB 75 F3 D2 DC 09 00 50 E9 76 02 89 00 00 00 00    .u.....P.v......
+80 02 FA F0 18 CC 00 00 02 04 05 B4 01 03 03 08    ................
+01 01 04 02                                        ....            
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56329
+seq=0
+ack_seq=3916825226
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=6010,urg_ptr=0
+]
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 34 96 FF 40 00 80 06 D0 CA C0 A8 03 09    E..4..@.........
+DB 75 F3 D2 DC 0A 00 50 7D FD 11 C0 00 00 00 00    .u.....P}.......
+80 02 FA F0 75 0D 00 00 02 04 05 B4 01 03 03 08    ....u...........
+01 01 04 02                                        ....            
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56330
+seq=0
+ack_seq=2113737153
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=bc51,urg_ptr=0
+]
+option,pad(12)=02,04,05,86,01,01,04,02,01,03,03,07
+TcpRecv:no target:56330
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56330,dest=80
+seq=2113737153
+ack_seq=1300355256
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=8a80,urg_ptr=0
+]
+UdpRecv:bad udp checksum(cbff):udplen=133
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 34 97 00 40 00 80 06 D0 C9 C0 A8 03 09    E..4..@.........
+DB 75 F3 D2 DC 0B 00 50 9D E4 29 5B 00 00 00 00    .u.....P..)[....
+80 02 FA F0 3D 8A 00 00 02 04 05 B4 01 03 03 08    ....=...........
+01 01 04 02                                        ....            
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56331
+seq=0
+ack_seq=2648975708
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=84ce,urg_ptr=0
+]
+UdpRecv:bad udp checksum(6cff):udplen=133
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 34 97 01 40 00 80 06 D0 C8 C0 A8 03 09    E..4..@.........
+DB 75 F3 D2 DC 0C 00 50 3D 39 B5 78 00 00 00 00    .u.....P=9.x....
+80 02 FA F0 12 17 00 00 02 04 05 B4 01 03 03 08    ................
+01 01 04 02                                        ....            
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56332
+seq=0
+ack_seq=1027192185
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=595b,urg_ptr=0
+]
+UdpRecv:bad udp checksum(c8ff):udplen=403
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 39 18 FB 00 00 80 11 9A 5E C0 A8 03 09    E..9.......^....
+C0 A8 03 01 D6 6B 00 35 00 25 BE A4 60 60 01 00    .....k.5.%..``..
+00 01 00 00 00 00 00 00 07 79 61 6D 2D 77 65 62    .........yam-web
+03 6E 65 74 00 00 1C 00 01                         .net.....       
+UdpRecv:bad udp checksum(faff):udplen=37
+UdpRecv:bad udp checksum(c5ff):udplen=93
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 28 D3 8F 40 00 80 06 67 4C C0 A8 03 09    E..(..@...gL....
+28 77 D3 CB DB EB 01 BB 79 D6 02 BD AE 90 62 21    (w......y.....b!
+50 14 00 00 84 F0 00 00 00 00 00 00 00 00          P.............  
+TcpRecv:no target:443
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=443,dest=56299
+seq=2928697889
+ack_seq=2044068542
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=bd7d,urg_ptr=0
+]
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 34 97 02 40 00 80 06 D0 C7 C0 A8 03 09    E..4..@.........
+DB 75 F3 D2 DC 0D 00 50 7D 3E DA F7 00 00 00 00    .u.....P}>......
+80 02 FA F0 AC 91 00 00 02 04 05 B4 01 03 03 08    ................
+01 01 04 02                                        ....            
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56333
+seq=0
+ack_seq=2101271288
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=f3d5,urg_ptr=0
+]
+option,pad(12)=02,04,05,86,01,01,04,02,01,03,03,07
+TcpRecv:no target:56333
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56333,dest=80
+seq=2101271288
+ack_seq=3837564054
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=6eeb,urg_ptr=0
+]
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 34 97 03 40 00 80 06 D0 C6 C0 A8 03 09    E..4..@.........
+DB 75 F3 D2 DC 0E 00 50 64 7A 9A 7D 00 00 00 00    .u.....Pdz.}....
+80 02 FA F0 05 CF 00 00 02 04 05 B4 01 03 03 08    ................
+01 01 04 02                                        ....            
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56334
+seq=0
+ack_seq=1685756542
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=4d13,urg_ptr=0
+]
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 34 97 04 40 00 80 06 D0 C5 C0 A8 03 09    E..4..@.........
+DB 75 F3 D2 DC 0D 00 50 7D 3E DA F7 00 00 00 00    .u.....P}>......
+80 02 FA F0 AC 91 00 00 02 04 05 B4 01 03 03 08    ................
+01 01 04 02                                        ....            
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56333
+seq=0
+ack_seq=2101271288
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=f3d5,urg_ptr=0
+]
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 34 97 05 40 00 80 06 D0 C4 C0 A8 03 09    E..4..@.........
+DB 75 F3 D2 DC 0E 00 50 64 7A 9A 7D 00 00 00 00    .u.....Pdz.}....
+80 02 FA F0 05 CF 00 00 02 04 05 B4 01 03 03 08    ................
+01 01 04 02                                        ....            
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56334
+seq=0
+ack_seq=1685756542
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=4d13,urg_ptr=0
+]
+option,pad(12)=02,04,05,86,01,01,04,02,01,03,03,07
+TcpRecv:no target:56334
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56334,dest=80
+seq=1685756542
+ack_seq=4151564014
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=7319,urg_ptr=0
+]
+option,pad(12)=02,04,05,86,01,01,04,02,01,03,03,07
+TcpRecv:no target:56333
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56333,dest=80
+seq=2101271288
+ack_seq=3837564054
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=6eeb,urg_ptr=0
+]
+option,pad(12)=02,04,05,86,01,01,04,02,01,03,03,07
+TcpRecv:no target:56330
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56330,dest=80
+seq=2113737153
+ack_seq=1300355256
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=8a80,urg_ptr=0
+]
+option,pad(12)=02,04,05,86,01,01,04,02,01,03,03,07
+TcpRecv:no target:56334
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56334,dest=80
+seq=1685756542
+ack_seq=4151564014
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=7319,urg_ptr=0
+]
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 34 97 06 40 00 80 06 D0 C3 C0 A8 03 09    E..4..@.........
+DB 75 F3 D2 DC 0D 00 50 7D 3E DA F7 00 00 00 00    .u.....P}>......
+80 02 FA F0 AC 91 00 00 02 04 05 B4 01 03 03 08    ................
+01 01 04 02                                        ....            
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56333
+seq=0
+ack_seq=2101271288
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=f3d5,urg_ptr=0
+]
+EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 34 97 07 40 00 80 06 D0 C2 C0 A8 03 09    E..4..@.........
+DB 75 F3 D2 DC 0E 00 50 64 7A 9A 7D 00 00 00 00    .u.....Pdz.}....
+80 02 FA F0 05 CF 00 00 02 04 05 B4 01 03 03 08    ................
+01 01 04 02                                        ....            
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56334
+seq=0
+ack_seq=1685756542
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=4d13,urg_ptr=0
+]
+UdpRecv:bad udp checksum(6cff):udplen=133
+UdpRecv:bad udp checksum(cbff):udplen=133
+arp EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 34 97 08 40 00 80 06 D0 C1 C0 A8 03 09    E..4..@.........
+DB 75 F3 D2 DC 0D 00 50 7D 3E DA F7 00 00 00 00    .u.....P}>......
+80 02 FA F0 AC 91 00 00 02 04 05 B4 01 03 03 08    ................
+01 01 04 02                                        ....            
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56333
+seq=0
+ack_seq=2101271288
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=f3d5,urg_ptr=0
+]
+-EtherTransfer to 70:77:81:7f:99:62 !!!!
+45 00 00 34 97 09 40 00 80 06 D0 C0 C0 A8 03 09    E..4..@.........
+DB 75 F3 D2 DC 0E 00 50 64 7A 9A 7D 00 00 00 00    .u.....Pdz.}....
+80 02 FA F0 05 CF 00 00 02 04 05 B4 01 03 03 08    ................
+01 01 04 02                                        ....            
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56334
+seq=0
+ack_seq=1685756542
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=4d13,urg_ptr=0
+]
+e
+[*]Stop ARP Poison
+isPoison=0
+
+
+
+option,pad(12)=02,04,05,86,01,01,04,02,01,03,03,07
+TcpRecv:no target:56329
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56329,dest=80
+seq=3916825226
+ack_seq=2900080214
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=f146,urg_ptr=0
+]
+option,pad(12)=02,04,05,86,01,01,04,02,01,03,03,07
+TcpRecv:no target:56333
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56333,dest=80
+seq=2101271288
+ack_seq=3837564054
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=6eeb,urg_ptr=0
+]
+option,pad(12)=02,04,05,86,01,01,04,02,01,03,03,07
+TcpRecv:no target:56334
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56334,dest=80
+seq=1685756542
+ack_seq=4151564014
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=7319,urg_ptr=0
+]
+UdpRecv:bad udp checksum(6cff):udplen=133
+UdpRecv:bad udp checksum(cbff):udplen=133
+option,pad(12)=02,04,05,86,01,01,04,02,01,03,03,07
+TcpRecv:no target:56331
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56331,dest=80
+seq=2648975708
+ack_seq=822503817
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=dea7,urg_ptr=0
+]
+UdpRecv:bad udp checksum(c6ff):udplen=133
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56333
+seq=0
+ack_seq=2101271288
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=f3d5,urg_ptr=0
+]
+option,pad(12)=02,04,05,b4,01,03,03,08,01,01,04,02
+TcpRecv:no target:80
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=80,dest=56334
+seq=0
+ack_seq=1685756542
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=4d13,urg_ptr=0
+]
+UdpRecv:bad udp checksum(c8ff):udplen=403
+option,pad(12)=02,04,05,86,01,01,04,02,01,03,03,07
+TcpRecv:no target:56330
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56330,dest=80
+seq=2113737153
+ack_seq=1300355256
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=8a80,urg_ptr=0
+]
+option,pad(12)=02,04,05,86,01,01,04,02,01,03,03,07
+TcpRecv:no target:56333
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56333,dest=80
+seq=2101271288
+ack_seq=3837564054
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=6eeb,urg_ptr=0
+]
+option,pad(12)=02,04,05,86,01,01,04,02,01,03,03,07
+TcpRecv:no target:56334
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56334,dest=80
+seq=1685756542
+ack_seq=4151564014
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=7319,urg_ptr=0
+]
+option,pad(12)=02,04,05,86,01,01,04,02,01,03,03,07
+TcpRecv:no target:56332
+=== TCP ===[
+tcp-----------------------------------------------------------------------------
+source=56332,dest=80
+seq=1027192185
+ack_seq=2155709050
+doff=5,urg=0,ack=1,psh=0,rst=1,syn=0,fin=0,window=0
+check=4acc,urg_ptr=0
+]
+UdpRecv:bad udp checksum(cbff):udplen=133
+UdpRecv:bad udp checksum(6cff):udplen=133
+UdpRecv:bad udp checksum(f5ff):udplen=85
+UdpRecv:bad udp checksum(c6ff):udplen=133
+UdpRecv:bad udp checksum(6cff):udplen=133
+UdpRecv:bad udp checksum(c8ff):udplen=403
+^C
+sent SIGINT signal , bye
+ending
+root@kali:/home/pelo/Documents/peloLinux/scripts/c/peloet# 
+
