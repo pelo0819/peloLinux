@@ -279,7 +279,7 @@ int EtherTransfer(
     write(soc, sbuf, ptr - sbuf);
     //print_ether_header(eh);
     char buff[80];
-    printf("EtherTransfer to %s !!!!\n", my_ether_ntoa_r(eh->ether_shost, buff));
+    printf("EtherTransfer to %s !!!!\n", my_ether_ntoa_r(mac, buff));
 
     return 0;
 
