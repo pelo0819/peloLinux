@@ -178,7 +178,7 @@ void TransferPacket(struct ether_header *eh, u_int8_t *data, int len, u_int8_t *
 {
     if(isPoisoning == 0){return;}
 
-    if(ntohs(eh->ether_type) != ETHERTYPE_IP)
+    if(ntohs(eh->ether_type) == ETHERTYPE_ARP)
     {
         return;
     }
