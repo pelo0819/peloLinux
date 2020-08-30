@@ -1010,7 +1010,7 @@ int TcpRecv(
     else
     {
         printf("TcpRecv:no target:%u\n",ntohs(tcp->dest));
-		TcpSendRstDirect(soc,eh,ip,tcp);
+		//TcpSendRstDirect(soc,eh,ip,tcp);
     }
     
     return 0;

