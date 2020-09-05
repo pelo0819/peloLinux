@@ -236,11 +236,11 @@ int EtherTransfer(
     int padlen;
 
     // ペイロード長が1500byte以上だったら大きすぎるのでリターン
-    if(len > ETHERMTU)
-    {
-        printf("EtherSend:data too long:%d\n", len);
-        return -1;
-    }
+    // if(len > ETHERMTU)
+    // {
+    //     printf("EtherSend:data too long:%d\n", len);
+    //     return -1;
+    // }
 
     // ptrにetherパケットの先頭のアドレスを代入
     ptr = sbuf;
@@ -281,13 +281,13 @@ int EtherTransfer(
     // 現在のアドレスと最初のアドレスの差分をみて、
     // 規定の最小パケットサイズ(60byte)未満でないかを確認
     // 小さいようであれば、60byteに達するまで0で埋める
-    if((ptr - sbuf) < ETH_ZLEN)
-    {
-        padlen = ETH_ZLEN - (ptr - sbuf);
-        printf("padlen=%d\n", padlen);
-        memset(ptr, 0, padlen);
-        ptr += padlen;
-    }
+    // if((ptr - sbuf) < ETH_ZLEN)
+    // {
+    //     padlen = ETH_ZLEN - (ptr - sbuf);
+    //     printf("padlen=%d\n", padlen);
+    //     memset(ptr, 0, padlen);
+    //     ptr += padlen;
+    // }
 
     printf("ether transfer4\n");
 
