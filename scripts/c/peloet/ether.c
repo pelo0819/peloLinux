@@ -184,10 +184,10 @@ int EtherSend(
     memset(eh, 0, sizeof(struct ether_header));
     
     // あとは普通にether_headの中身を設定していく
-    // 送信元MACアドレスを設定
+    // 送信先MACアドレスを設定
     memcpy(eh->ether_dhost, dmac, 6);
     
-    // 送信先MACアドレスを設定
+    // 送信元MACアドレスを設定
     memcpy(eh->ether_shost, smac, 6);
     
     // L3層のプロトコルタイプを設定
@@ -246,11 +246,11 @@ int EtherTransfer(
     memset(eh, 0, sizeof(struct ether_header));
     
     // あとは普通にether_headの中身を設定していく
-    // 送信元MACアドレスを設定
+    // 送信先MACアドレスを設定
     memcpy(eh->ether_dhost, mac, 6);
     
-    // 送信先MACアドレスを設定
-    memcpy(eh->ether_shost, eh_def->ether_shost, 6);
+    // 送信元MACアドレスを設定
+    memcpy(eh->ether_shost, Param.vmac, 6);
     
     // L3層のプロトコルタイプを設定
     eh->ether_type = eh_def->ether_type;
