@@ -235,6 +235,13 @@ int EtherTransfer(
     u_int8_t sbuf[sizeof(struct ether_header) + ETHERMTU];
     int padlen;
 
+    // ペイロード長が1500byte以上だったら大きすぎるのでリターン
+    if(len > ETHERMTU)
+    {
+        printf("EtherSend:data too long:%d\n", len);
+        return -1;
+    }
+
     // ptrにetherパケットの先頭のアドレスを代入
     ptr = sbuf;
 
