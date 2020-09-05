@@ -220,6 +220,7 @@ int maccmp(u_int8_t from_mac[6], u_int8_t to_mac[6])
             return -1;
         }
     }
+    printf("mamcmp check end\n");
     return 0;
 }
 

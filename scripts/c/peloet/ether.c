@@ -241,6 +241,8 @@ int EtherTransfer(
     // etherパケットの先頭からether_headerのサイズ分を
     // ether_headerの記憶方法に変換
     eh = (struct ether_header *)ptr;
+
+    printf("ether transfer1\n");
     
     // ether_header分のメモリの中身を0にセット
     memset(eh, 0, sizeof(struct ether_header));
@@ -261,6 +263,8 @@ int EtherTransfer(
 
     // ずらした位置からペイロードをセット
     memcpy(ptr, data, len);
+
+    printf("ether transfer2\n");
 
     // ペイロード分アドレスをズラス
     ptr += len;
