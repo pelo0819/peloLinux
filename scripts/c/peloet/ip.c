@@ -291,6 +291,7 @@ int IpRecv(int soc, u_int8_t *raw, int raw_len, struct ether_header *eh, u_int8_
         IpRecvBufDel((ntohs(ip->ip_id)));
     }
 
+    print_ip(ip);
     return 0;
 }
 
