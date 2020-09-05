@@ -277,6 +277,7 @@ int EtherTransfer(
     if((ptr - sbuf) < ETH_ZLEN)
     {
         padlen = ETH_ZLEN - (ptr - sbuf);
+        printf("padlen=%s\n", padlen);
         memset(ptr, 0, padlen);
         ptr += padlen;
     }
