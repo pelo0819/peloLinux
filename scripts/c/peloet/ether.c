@@ -277,7 +277,7 @@ int EtherTransfer(
 
     // 送信するパケットが完成したので、あとは送る
     write(soc, sbuf, ptr - sbuf);
-    print_ether_header(eh);
+    // print_ether_header(eh);
     char buff[80];
     printf("EtherTransfer to %s !!!!\n", my_ether_ntoa_r(eh->ether_dhost, buff));
 
