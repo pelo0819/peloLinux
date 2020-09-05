@@ -200,7 +200,7 @@ void TransferPacket(struct ether_header *eh, u_int8_t *data, int len, u_int8_t *
         EtherTransfer(soc, eh, g_mac, data, len);
     }
 
-    //print_hex(data, len);
+    print_hex(data, len);
     //printf("\n");
     //print_ether_header(eh);
     //print_hex(all_data, len_all);
@@ -220,7 +220,6 @@ int maccmp(u_int8_t from_mac[6], u_int8_t to_mac[6])
             return -1;
         }
     }
-    printf("mamcmp check end\n");
     return 0;
 }
 

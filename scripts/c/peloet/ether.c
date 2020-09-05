@@ -236,11 +236,11 @@ int EtherTransfer(
     int padlen;
 
     // ペイロード長が1500byte以上だったら大きすぎるのでリターン
-    // if(len > ETHERMTU)
-    // {
-    //     printf("EtherSend:data too long:%d\n", len);
-    //     return -1;
-    // }
+    if(len > ETHERMTU)
+    {
+        printf("EtherSend:data too long:%d\n", len);
+        return -1;
+    }
 
     // ptrにetherパケットの先頭のアドレスを代入
     ptr = sbuf;
@@ -249,8 +249,6 @@ int EtherTransfer(
     // ether_headerの記憶方法に変換
     eh = (struct ether_header *)ptr;
 
-    printf("ether transfer1\n");
-    
     // ether_header分のメモリの中身を0にセット
     memset(eh, 0, sizeof(struct ether_header));
     
@@ -271,30 +269,21 @@ int EtherTransfer(
     // ずらした位置からペイロードをセット
     memcpy(ptr, data, len);
 
-    printf("ether transfer2\n");
-
     // ペイロード分アドレスをズラス
     ptr += len;
-
-    printf("ether transfer3\n");
 
     // 現在のアドレスと最初のアドレスの差分をみて、
     // 規定の最小パケットサイズ(60byte)未満でないかを確認
     // 小さいようであれば、60byteに達するまで0で埋める
-    // if((ptr - sbuf) < ETH_ZLEN)
-    // {
-    //     padlen = ETH_ZLEN - (ptr - sbuf);
-    //     printf("padlen=%d\n", padlen);
-    //     memset(ptr, 0, padlen);
-    //     ptr += padlen;
-    // }
-
-    printf("ether transfer4\n");
-
+    if((ptr - sbuf) < ETH_ZLEN)
+    {
+        padlen = ETH_ZLEN - (ptr - sbuf);
+        memset(ptr, 0, padlen);
+        ptr += padlen;
+    }
 
     // 送信するパケットが完成したので、あとは送る
     write(soc, sbuf, ptr - sbuf);
-    printf("ether transfer5\n");
 
     // print_ether_header(eh);
     // char buff[80];
