@@ -290,8 +290,8 @@ int EtherTransfer(
     printf("ether transfer5\n");
 
     // print_ether_header(eh);
-    char buff[80];
-    printf("EtherTransfer to %s !!!!\n", my_ether_ntoa_r(eh->ether_dhost, buff));
+    // char buff[80];
+    // printf("EtherTransfer to %s !!!!\n", my_ether_ntoa_r(eh->ether_dhost, buff));
 
     return 0;
 
