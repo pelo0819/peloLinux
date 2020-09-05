@@ -191,7 +191,6 @@ void TransferPacket(struct ether_header *eh, u_int8_t *data, int len, u_int8_t *
     // 本来ならgatewayからtargetに向かうパケットなのでMACをtargetに変更する
     if(maccmp(eh->ether_shost, g_mac) == 0 && maccmp(eh->ether_dhost, Param.vmac) == 0)
     {
-        char buff[80];
         //printf("EtherTransfer to %s\n", my_ether_ntoa_r(t_mac, buff));
         EtherTransfer(soc, eh, t_mac, data, len);
     }
@@ -221,7 +220,6 @@ int maccmp(u_int8_t from_mac[6], u_int8_t to_mac[6])
             return -1;
         }
     }
-    char buf1[80];
     return 0;
 }
 

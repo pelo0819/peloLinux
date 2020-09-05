@@ -369,7 +369,7 @@ int IpRecvReadOnly(int soc, u_int8_t *raw, int raw_len, struct ether_header *eh,
         IpRecvBufDel((ntohs(ip->ip_id)));
     }
 
-    print_ip(ip);
+    //print_ip(ip);
 
     return 0;
 }
