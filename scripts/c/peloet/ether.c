@@ -269,6 +269,8 @@ int EtherTransfer(
     // ペイロード分アドレスをズラス
     ptr += len;
 
+    printf("ether transfer3\n");
+
     // 現在のアドレスと最初のアドレスの差分をみて、
     // 規定の最小パケットサイズ(60byte)未満でないかを確認
     // 小さいようであれば、60byteに達するまで0で埋める
@@ -279,8 +281,13 @@ int EtherTransfer(
         ptr += padlen;
     }
 
+    printf("ether transfer4\n");
+
+
     // 送信するパケットが完成したので、あとは送る
     write(soc, sbuf, ptr - sbuf);
+    printf("ether transfer5\n");
+
     // print_ether_header(eh);
     char buff[80];
     printf("EtherTransfer to %s !!!!\n", my_ether_ntoa_r(eh->ether_dhost, buff));
