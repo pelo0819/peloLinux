@@ -205,7 +205,7 @@ void TransferPacket(struct ether_header *eh, u_int8_t *data, int len, u_int8_t *
     //print_ether_header(eh);
     //print_hex(all_data, len_all);
 
-    //printf("--- End EtherTransfer ---\n");
+    printf("--- End EtherTransfer ---\n");
     //printf("\n");
 
 }
