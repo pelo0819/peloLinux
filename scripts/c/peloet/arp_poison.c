@@ -187,14 +187,14 @@ void TransferPacket(struct ether_header *eh, u_int8_t *data, int len, u_int8_t *
 
     printf("--- Start EtherTransfer ---\n");
     // 本来ならgatewayからtargetに向かうパケットなのでMACをtargetに変更する
-    if(maccmp(eh->ether_dhost, t_mac) == 0)
+    if(maccmp(eh->ether_shost, g_mac) == 0 && maccmp(eh->ether_dhost, Param.vmac) == 0)
     {
         char buff[80];
         printf("EtherTransfer to %s\n", my_ether_ntoa_r(t_mac, buff));
         EtherTransfer(soc, eh, t_mac, data, len);
     }
     // 本来ならtargetからgatewayに向かうパケットなのでMACをgatewayに変更する
-    else if(maccmp(eh->ether_shost, t_mac) == 0)
+    else if(maccmp(eh->ether_shost, t_mac) == 0 && maccmp(eh->ether_dhost, Param.vmac) == 0)
     {
         EtherTransfer(soc, eh, g_mac, data, len);
     }
