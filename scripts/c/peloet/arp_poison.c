@@ -13,6 +13,7 @@
 #include "ether.h"
 #include "arp.h"
 #include "param.h"
+#include "ip.h"
 #include "arp_poison.h"
 
 extern PARAM Param;
@@ -186,6 +187,12 @@ void TransferPacket(struct ether_header *eh, u_int8_t *data, int len, u_int8_t *
     int soc = GetDeviceSoc();
 
     printf("--- Start EtherTransfer ---\n");
+
+    if(ntohs(eh->ether_type) == ETHERTYPE_IP)
+    {
+        IpRecvReadOnly(soc, in_ptr, in_len, eh, ptr, len);
+    }
+
     // 本来ならgatewayからtargetに向かうパケットなのでMACをtargetに変更する
     if(maccmp(eh->ether_shost, g_mac) == 0 && maccmp(eh->ether_dhost, Param.vmac) == 0)
     {

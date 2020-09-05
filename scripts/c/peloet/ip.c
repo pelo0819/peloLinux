@@ -294,6 +294,85 @@ int IpRecv(int soc, u_int8_t *raw, int raw_len, struct ether_header *eh, u_int8_
     return 0;
 }
 
+int IpRecvReadOnly(int soc, u_int8_t *raw, int raw_len, struct ether_header *eh, u_int8_t *data, int len)
+{
+    struct ip *ip;
+    u_int8_t option[1500];// MTUサイズ
+    u_int16_t sum;
+    int optionLen;
+    int no;
+    int off;
+    int plen;
+    u_int8_t *ptr = data;
+
+    char *d = (char *)data;
+
+    if(len < (int)sizeof(struct ip))
+    {
+        printf("len(%d) < sizeof(struct ip)\n", len);
+        return -1;
+    }
+
+    ip = (struct ip *)ptr;
+    ptr += sizeof(struct ip);
+    len -= sizeof(struct ip);
+
+    char buf1[80];
+    char buf2[80];
+
+    optionLen = ip->ip_hl * 4 -sizeof(struct ip);
+
+    if(optionLen > 0)
+    {
+        if(optionLen >= 1500)
+        {
+            printf("IP optionLen(%d) too big\n", optionLen);
+            return -1;
+        }
+        memcpy(option, ptr, optionLen);
+        ptr += optionLen;
+        len -= optionLen;
+    }
+
+    if(optionLen == 0)
+    {
+        sum = checksum((u_int8_t *)ip, sizeof(struct ip));
+    }
+    else
+    {
+        sum = checksum2((u_int8_t *)ip, sizeof(struct ip), option, optionLen);
+    }
+    if(sum != 0 && sum != 0xFFFF)
+    {
+        printf("bad ip checksum\n");
+    }
+
+    // IPペイロードのバイト長を格納
+    plen = ntohs(ip->ip_len) - ip->ip_hl * 4;
+
+    // 空きバッファのインデックスを取得
+    no = IpRecvBufAdd(ip->ip_id);
+    // bit演算子よりオフセット長が最大値を超えないようにして設定
+    off = (ntohs(ip->ip_off) & IP_OFFMASK) * 8;
+    memcpy(IpRecvBuf[no].data + off, ptr, plen);
+
+    if(!(ntohs(ip->ip_off) & IP_MF))
+    {
+        char buf3[80];
+        char buf4[80];
+
+        inet_ntop(AF_INET, &ip->ip_src, buf3, sizeof(buf3));
+        inet_ntop(AF_INET, &ip->ip_dst, buf4, sizeof(buf4));
+        // printf("SrcIpAddr=%s, DstIpAddr=%s !!!\n", buf3, buf4);
+        IpRecvBuf[no].len = off + plen;
+        IpRecvBufDel((ntohs(ip->ip_id)));
+    }
+
+    print_ip(ip);
+
+    return 0;
+}
+
 int IpSendLink(
     int soc,
     u_int8_t smac[6],
