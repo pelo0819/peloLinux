@@ -29,7 +29,7 @@ struct pseudo_ip
     u_int16_t ip_len;
 };
 
-#define UDP_TABLE_NO 16
+#define UDP_TABLE_NO 64
 
 typedef struct 
 {

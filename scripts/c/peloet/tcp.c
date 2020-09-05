@@ -27,7 +27,7 @@ struct pseudo_ip
     u_int16_t ip_len;
 };
 
-#define TCP_TABLE_NO 16
+#define TCP_TABLE_NO 64
 
 typedef struct
 {

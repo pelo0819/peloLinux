@@ -14,7 +14,7 @@
 
 extern PARAM Param;
 
-#define ARP_TABLE_NO (16)
+#define ARP_TABLE_NO (64)
 
 typedef struct{
     time_t timestamp;

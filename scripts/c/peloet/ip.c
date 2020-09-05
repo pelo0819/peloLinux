@@ -24,7 +24,7 @@
 
 extern PARAM Param;
 
-#define IP_RECV_BUF_NO (16)
+#define IP_RECV_BUF_NO (64)
 
 typedef struct
 {
