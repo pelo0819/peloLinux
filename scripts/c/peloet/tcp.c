@@ -795,6 +795,10 @@ int TcpRecv(
         return -1;
     }
 
+    char buf1[80];
+    printf("ip_src = %s\n", inet_ntop(AF_INET, &ip->ip_src, buf1, sizeof(buf1)));
+    printf("ip_dst = %s\n", inet_ntop(AF_INET, &ip->ip_dst, buf1, sizeof(buf1)));
+
 
     tcp = (struct tcphdr *)ptr;
     ptr += sizeof(struct tcphdr);
