@@ -788,17 +788,16 @@ int TcpRecv(
 
     tcplen = len;
 
+    char buf1[80];
+    printf("ip_src = %s\n", inet_ntop(AF_INET, &ip->ip_src, buf1, sizeof(buf1)));
+    printf("ip_dst = %s\n", inet_ntop(AF_INET, &ip->ip_dst, buf1, sizeof(buf1)));
+
     sum = TcpChecksum(&ip->ip_src, &ip->ip_dst, ip->ip_p, data, tcplen);
     if(sum != 0 && sum != 0xFFFF)
     {
         printf("TcpRecv:bad tcp checksum(%x)\n", sum);
         return -1;
     }
-
-    char buf1[80];
-    printf("ip_src = %s\n", inet_ntop(AF_INET, &ip->ip_src, buf1, sizeof(buf1)));
-    printf("ip_dst = %s\n", inet_ntop(AF_INET, &ip->ip_dst, buf1, sizeof(buf1)));
-
 
     tcp = (struct tcphdr *)ptr;
     ptr += sizeof(struct tcphdr);
