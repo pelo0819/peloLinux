@@ -207,8 +207,9 @@ int IpRecv(int soc, u_int8_t *raw, int raw_len, struct ether_header *eh, u_int8_
     char buf1[80];
     char buf2[80];
 
-    printf("ip_src = %s\n", inet_ntop(AF_INET, &ip->ip_src, buf1, sizeof(buf1)));
-    printf("ip_dst = %s\n", inet_ntop(AF_INET, &ip->ip_dst, buf1, sizeof(buf1)));
+    printf("ip_src: %s, ip_dst: %s\n", 
+        inet_ntop(AF_INET, &ip->ip_src, buf1, sizeof(buf1)), 
+        inet_ntop(AF_INET, &ip->ip_dst, buf1, sizeof(buf1)));
 
     // if(Param.vip.s_addr != 0)
     // {
