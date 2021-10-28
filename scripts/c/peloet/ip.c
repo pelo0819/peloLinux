@@ -209,7 +209,7 @@ int IpRecv(int soc, u_int8_t *raw, int raw_len, struct ether_header *eh, u_int8_
 
     printf("ip_src: %s, ip_dst: %s\n", 
         inet_ntop(AF_INET, &ip->ip_src, buf1, sizeof(buf1)), 
-        inet_ntop(AF_INET, &ip->ip_dst, buf1, sizeof(buf1)));
+        inet_ntop(AF_INET, &ip->ip_dst, buf2, sizeof(buf2)));
 
     // if(Param.vip.s_addr != 0)
     // {
