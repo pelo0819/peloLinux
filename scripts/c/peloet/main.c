@@ -145,6 +145,10 @@ int main(int argc, char *argv[])
         printf("GArp check fail\n");
         return -1;
     }
+    else
+    {
+        printf("SUCCESS ArpCheck()\n");
+    }
 
     while(EndFlag == 0)
     {

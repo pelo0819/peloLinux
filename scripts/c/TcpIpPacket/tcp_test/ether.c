@@ -91,6 +91,7 @@ char *my_ether_ntoa_r(u_int8_t *hwaddr, char *buf)
 
 int EtherRecv(int soc, u_int8_t *in_ptr, int in_len)
 {
+    printf("EtherRecv()\n");
     struct ether_header *eh;
     u_int8_t *ptr = in_ptr;
     int len = in_len;

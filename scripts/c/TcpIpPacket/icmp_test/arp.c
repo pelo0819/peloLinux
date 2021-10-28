@@ -421,6 +421,7 @@ int GetTargetMac(int soc, struct in_addr *daddr, u_int8_t dmac[6], int gratutiou
     // MACアドレスを取得できるまでループ(最大3回までだけど)
     while(!ArpSearchTable(&addr, dmac))
     {
+        printf("ArpSendRequest()\n");
         if(gratutious)
         {
             ArpSendRequestGratuitous(soc, &addr);

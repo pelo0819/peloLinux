@@ -138,7 +138,7 @@ int init_sock(char *device)
     // arg2：SOCK_RAWならデータリンク層から扱える、SOCK_DGRAMならネットワーク層の生データを扱える
     // arg3：受信するイーサネットタイプを指定、
     //         ETH_P_IPならIPパケットのみを受信、ETH_P_ARPならARPパケットのみを受信、今回は全部(ETH_P_ALL)
-    if((soc =socket(AF_PACKET, SOCK_RAW, htons(ETH_P_ALL) )) < 0 )
+    if((soc = socket(AF_PACKET, SOCK_RAW, htons(ETH_P_ALL) )) < 0 )
     {
         perror("socket");
         return -1;
